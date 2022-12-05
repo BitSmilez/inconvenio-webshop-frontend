@@ -3,7 +3,7 @@ import ShopLogo from "../ShopLogo/ShopLogo";
 
 const NavBar = () => {
 
-    const shopName = "S M I L E Z";
+    const shopName = "INCONVENIO";
 
     return (
         <div className={"navbar-wrapper"}>
