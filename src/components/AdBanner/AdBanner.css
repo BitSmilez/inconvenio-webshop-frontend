@@ -1,0 +1,9 @@
+.ad-banner {
+    background-color: #6e7285;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    height: 50px;
+}
