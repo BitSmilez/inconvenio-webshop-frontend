@@ -1,0 +1,95 @@
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #000;
+    color: white;
+    padding: 20px;
+}
+
+.footer-left {
+    display: flex;
+    flex: 0.75;
+    flex-direction: column;
+}
+
+.footer-area-center-right, .footer-area-center-left, .footer-right {
+    display: flex;
+    flex: 1;
+
+}
+
+.footer-area-center-left {
+    margin-left: 25px;
+}
+
+.footer-right {
+    margin-right: 5px;
+}
+
+
+.footer-shop-headline {
+    font-family: 'Righteous', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.footer-headlines {
+    font-family: 'Saira', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.footer-links-headline {
+    margin-left: 40px;
+}
+
+.footer-links-list {
+    font-size: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+.footer-link {
+    width: 30%;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: white;
+}
+
+.footer-links-list a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+
+.footer-contact-entry {
+    display: flex;
+    font-size: 1rem;
+    font-family: 'Saira', sans-serif;
+}
+
+.footer-payment-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-text, .footer-payment-icons {
+    margin-top: -10px;
+    font-size: 1.15rem;
+    display: flex;
+
+}
