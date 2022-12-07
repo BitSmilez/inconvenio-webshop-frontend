@@ -4,7 +4,7 @@ const Imprint = () => {
 
 
     return (
-    <div>
+    <div className="impressum_div">
         <li className={"back-to-shop-list-elem"}><a className={"back-to-shop-link"} href="/">Back to Shop</a></li>
         <div className="impressum">
 
