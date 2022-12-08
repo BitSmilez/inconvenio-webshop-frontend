@@ -1,7 +1,7 @@
-import "./Imprint.css"
+import "./ImprintContent.css"
 import LinkButton from "../LinkButton/LinkButton";
 
-const Imprint = () => {
+const ImprintContent = () => {
 
 
     return (
@@ -41,4 +41,4 @@ const Imprint = () => {
 
     )
 }
-export default Imprint;
+export default ImprintContent;
