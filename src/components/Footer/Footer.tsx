@@ -31,7 +31,6 @@ const Footer = () => {
                 <FooterShippingInfos/>
             </div>
         </div>
-
     )
 }
 export default Footer;

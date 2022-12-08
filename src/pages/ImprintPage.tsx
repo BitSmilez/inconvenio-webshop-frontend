@@ -1,11 +1,9 @@
-import Imprint from "../components/Pages/Imprint/Imprint";
+import Imprint from "../components/ImprintContent/Imprint";
 
 
 const ImprintPage = () => {
     return (
         <Imprint/>
-
-
     );
 }
 

@@ -12,12 +12,3 @@
 .legal-content p {
     font-size: 20px;
 }
-
-.back-to-shop-link, .back-to-shop-list-elem {
-    text-decoration: none;
-    list-style: none;
-    color: white;
-    background: black;
-    display: inline-block;
-    padding: 5px;
-}
