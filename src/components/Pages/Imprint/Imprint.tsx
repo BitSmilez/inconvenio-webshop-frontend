@@ -4,9 +4,9 @@ const Imprint = () => {
 
 
     return (
-    <div className="impressum_div">
+    <div className="impressum-container">
         <li className={"back-to-shop-list-elem"}><a className={"back-to-shop-link"} href="/">Back to Shop</a></li>
-        <div className="impressum">
+        <div className="impressum-content">
 
             <h1>Impressum</h1><p>Angaben gemäß § 5 TMG</p><p>Max Muster <br />
             Musterweg<br />
