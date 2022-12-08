@@ -2,6 +2,8 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from "./pages/LandingPage";
 import AdBanner from "./components/AdBanner/AdBanner";
 import ImprintPage from "./pages/ImprintPage";
+import LegalPage from "./pages/LegalPage";
+
 
 const App = () => {
 
@@ -18,6 +20,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<LandingPage/>}/>
                     <Route path ="/imprint" element={<ImprintPage/>}/>
+                    <Route path="/privacy" element={<LegalPage/>}/>
                 </Routes>
             </Router>
         </>
