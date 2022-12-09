@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "question": "What are the services you offer?",
+    "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates corporis vitae tempora quod provident tenetur culpa dolore facere? Earum, dolor?"
+  },
+  {
+    "id": 2,
+    "question": "What are the preferred methods of payment?",
+    "answer": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto iusto veniam eveniet labore impedit nam"
+  },
+  {
+    "id": 3,
+    "question": "Where do you ship to?",
+    "answer": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sed. Dolores,"
+  },
+  {
+    "id": 4,
+    "question": "Is there a minimum order?",
+    "answer": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sed. Dolores, sequi."
+  },
+  {
+    "id": 5,
+    "question": "How long does it take to ship?",
+    "answer": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sed. Dolores, sequi."
+  }
+]
