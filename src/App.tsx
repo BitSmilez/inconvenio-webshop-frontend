@@ -4,6 +4,7 @@ import AdBanner from "./components/AdBanner/AdBanner";
 import ImprintPage from "./pages/ImprintPage";
 import LegalPage from "./pages/LegalPage";
 import FAQPage from "./pages/FAQPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path ="/imprint" element={<ImprintPage/>}/>
                     <Route path="/privacy" element={<LegalPage/>}/>
                     <Route path="/faq" element={<FAQPage/>}/>
+                    <Route path="/terms" element={<TermsAndConditionsPage/>}/>
                 </Routes>
             </Router>
         </>
