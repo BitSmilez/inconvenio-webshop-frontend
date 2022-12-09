@@ -2,6 +2,7 @@ import "./FAQContent.css"
 import faqQuestions from "../../data/FAQData.json"
 import FAQItem from "../FAQItem/FAQItem";
 import LinkButton from "../LinkButton/LinkButton";
+import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
 
 const FAQContent = () => {
 
@@ -10,7 +11,7 @@ const FAQContent = () => {
         <div className={"faq-wrapper"}>
             <div className={"faq-container"}>
                 <LinkButton URL={"/"} text={"Back to Shop"}/>
-                <h1>FAQ</h1>
+                <GenericPageHeadline text={"FAQ"}/>
             </div>
             <div className={"faq-content"}>
                 <p>Here you can find all the answers to your questions.</p>

@@ -1,5 +1,6 @@
 import "./ImprintContent.css"
 import LinkButton from "../LinkButton/LinkButton";
+import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
 
 const ImprintContent = () => {
 
@@ -9,7 +10,7 @@ const ImprintContent = () => {
             <LinkButton URL={"/"} text={"Back to Shop"}/>
             <div className="impressum-content">
 
-                <h1>Imprint</h1>
+                <GenericPageHeadline text={"Imprint"}/>
                 <p>Information according to § 5 TMG</p>
                 <p>Max Muster <br/> Musterweg<br/>12345 Musterstadt <br/></p>
                 <p><
