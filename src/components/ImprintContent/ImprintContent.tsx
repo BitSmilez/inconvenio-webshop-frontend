@@ -6,7 +6,7 @@ const ImprintContent = () => {
 
     return (
         <div className="impressum-container">
-            <LinkButton URL={"/"}/>
+            <LinkButton URL={"/"} text={"Back to Shop"}/>
             <div className="impressum-content">
 
                 <h1>Imprint</h1>

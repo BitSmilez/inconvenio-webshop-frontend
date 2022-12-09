@@ -3,7 +3,7 @@ import LinkButton from "../LinkButton/LinkButton";
 const LegalContent = () => {
     return (
         <div className={"legal-content"}>
-            <LinkButton URL={"/"}/>
+            <LinkButton URL={"/"} text={"Back to Shop"}/>
             <h1>INCONVENIO Privacy Policy</h1>
             <p>Effective date: December 07, 2022 (not really)</p>
             <p>INCONVENIO Team ("us", "we", "our") operates the https://inconvenio-shop.de website (the "Service").</p>
