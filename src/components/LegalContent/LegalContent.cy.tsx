@@ -13,21 +13,22 @@ describe("LegalContent", () => {
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
-        cy.get(".back-to-shop-link").should("exist");
+        cy.get("li > a").should("exist");
+        cy.get("li > a").should("have.text", "Back to Shop");
     });
     it("back to shop link should have a href to /", () => {
         cy.mount(
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
-        cy.get(".back-to-shop-link").should("have.attr", "href", "/");
+        cy.get("li > a").should("have.attr", "href", "/");
     });
     it("click on back to shop link should redirect to /", () => {
         cy.mount(
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
-        cy.get(".back-to-shop-link").click();
+        cy.get("li > a").click();
         cy.url().should("include", "/");
     });
 });

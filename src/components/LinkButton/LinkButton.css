@@ -1,0 +1,8 @@
+.link-button-link, .link-button-li-elem {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    background: black;
+    display: inline-block;
+    padding: 5px;
+}
