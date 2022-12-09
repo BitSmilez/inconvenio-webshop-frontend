@@ -1,13 +1,14 @@
 import "./LegalContent.css"
 import LinkButton from "../LinkButton/LinkButton";
 import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
+import shop from "../../data/shopConstants";
 const LegalContent = () => {
     return (
         <div className={"legal-content"}>
             <LinkButton URL={"/"} text={"Back to Shop"}/>
-            <GenericPageHeadline text={"INCONVENIO Privacy Policy"}/>
+            <GenericPageHeadline text={shop.shopName + " Privacy Policy"}/>
             <p>Effective date: December 07, 2022 (not really)</p>
-            <p>INCONVENIO Team ("us", "we", "our") operates the https://inconvenio-shop.de website (the "Service").</p>
+            <p>{shop.shopName} Team ("us", "we", "our") operates the {shop.shopURL} website (the "Service").</p>
             <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when
                 you use our Service and the choices you have
                 associated with that data.
@@ -48,7 +49,7 @@ const LegalContent = () => {
             </p>
             <h2> Use of Data</h2>
             <p>
-                INCONVENIO Team uses the collected data for various purposes:
+                {shop.shopName} Team uses the collected data for various purposes:
                 <ul>
                     <li>To provide and maintain the Service</li>
                     <li>To notify you about changes to our Service</li>
@@ -83,8 +84,8 @@ const LegalContent = () => {
             <p>
                 If you have any questions about this Privacy Policy, please contact us:
                 <br></br><br></br>
-                By email: legalteam@inconvenio-shop.de <br></br>
-                Call us: +0 000 000 000
+                By email: {shop.shopLegalEmail} <br></br>
+                Call us: {shop.shopPhone}
             </p>
         </div>
 
