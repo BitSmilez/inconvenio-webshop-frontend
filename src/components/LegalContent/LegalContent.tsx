@@ -1,10 +1,11 @@
 import "./LegalContent.css"
 import LinkButton from "../LinkButton/LinkButton";
+import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
 const LegalContent = () => {
     return (
         <div className={"legal-content"}>
             <LinkButton URL={"/"} text={"Back to Shop"}/>
-            <h1>INCONVENIO Privacy Policy</h1>
+            <GenericPageHeadline text={"INCONVENIO Privacy Policy"}/>
             <p>Effective date: December 07, 2022 (not really)</p>
             <p>INCONVENIO Team ("us", "we", "our") operates the https://inconvenio-shop.de website (the "Service").</p>
             <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when
