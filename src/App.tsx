@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import AdBanner from "./components/AdBanner/AdBanner";
 import ImprintPage from "./pages/ImprintPage";
 import LegalPage from "./pages/LegalPage";
+import FAQPage from "./pages/FAQPage";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/" element={<LandingPage/>}/>
                     <Route path ="/imprint" element={<ImprintPage/>}/>
                     <Route path="/privacy" element={<LegalPage/>}/>
+                    <Route path="/faq" element={<FAQPage/>}/>
                 </Routes>
             </Router>
         </>

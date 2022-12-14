@@ -11,7 +11,7 @@ const FooterLinks = () => {
                 <li className={"footer-link"}><a href="/cart">Cart</a></li>
                 <li className={"footer-link"}><a href="/wishlist">Wishlist</a></li>
                 <li className={"footer-link"}><a href="/paymentinfo">Payments</a></li>
-                <li className={"footer-link"}><a href="/shippinginfo">Shipping</a></li>
+                <li className={"footer-link"}><a href="/faq">FAQ</a></li>
                 <li className={"footer-link"}><a href="/privacy">Legal</a></li>
                 <li className={"footer-link"}><a href="/imprint">Imprint</a></li>
             </ul>
