@@ -5,6 +5,7 @@ import ImprintPage from "./pages/ImprintPage";
 import LegalPage from "./pages/LegalPage";
 import FAQPage from "./pages/FAQPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+import ReturnPolicyPage from "./pages/ReturnPolicyPage";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                     <Route path="/privacy" element={<LegalPage/>}/>
                     <Route path="/faq" element={<FAQPage/>}/>
                     <Route path="/terms" element={<TermsAndConditionsPage/>}/>
+                    <Route path="/refunds" element={<ReturnPolicyPage/>}/>
                 </Routes>
             </Router>
         </>

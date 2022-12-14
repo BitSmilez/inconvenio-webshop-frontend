@@ -1,20 +1,21 @@
 import "./TermsContent.css"
 import LinkButton from "../LinkButton/LinkButton";
 import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
+import shop from "../../data/shopConstants";
 
 const TermsContent = () => {
     return (
         <>
             <div className="terms-content-container">
                 <LinkButton URL={"/"} text={"Back to Shop"}/>
-                <GenericPageHeadline text={"INCONVENIO Terms & Conditions"}/>
+                <GenericPageHeadline text={shop.shopName + " Terms & Conditions"}/>
                 <p>
-                    These terms and conditions outline the rules and regulations for the use of the INCONVENIO
-                    Website, located at https://inconvenio-shop.de/.
+                    These terms and conditions outline the rules and regulations for the use of the {shop.shopName}
+                    Website, located at {shop.shopURL}.
                     <br></br>
                     By accessing this website we assume you accept these terms and conditions. Do not continue to use
                     the
-                    INCONVENIO shop if you do not agree to take all of the terms and conditions stated on this page.
+                    {shop.shopName} shop if you do not agree to take all of the terms and conditions stated on this page.
                     <br></br>
                     The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer
                     Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log on this website
@@ -23,8 +24,8 @@ const TermsContent = () => {
                 </p>
                 <h3>Cookies</h3>
                 <p>
-                    We employ the use of cookies. By accessing the INCONVENIO shop, you agreed to use cookies in
-                    agreement with the INCONVENIO Privacy Policy.
+                    We employ the use of cookies. By accessing the {shop.shopName} shop, you agreed to use cookies in
+                    agreement with the {shop.shopName} Privacy Policy.
                     <br></br>
                     Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies
                     are used by our website to enable the functionality of certain areas to make it easier for people
@@ -32,18 +33,18 @@ const TermsContent = () => {
                 </p>
                 <h3>License</h3>
                 <p>
-                    Unless otherwise stated, INCONVENIO and/or its licensors own the intellectual property rights for
-                    all material on INCONVENIO shop. All intellectual property rights are reserved. You may access this
-                    from INCONVENIO shop for your own personal use subjected to restrictions set in these terms and
+                    Unless otherwise stated, {shop.shopName} and/or its licensors own the intellectual property rights for
+                    all material on {shop.shopName} shop. All intellectual property rights are reserved. You may access this
+                    from {shop.shopName} shop for your own personal use subjected to restrictions set in these terms and
                     conditions.
                     <br></br>
                     You must not:
                 </p>
                 <ul>
-                    <li>Republish material from INCONVENIO shop</li>
-                    <li>Sell, rent or sub-license material from INCONVENIO shop</li>
-                    <li>Reproduce, duplicate or copy material from INCONVENIO shop</li>
-                    <li>Redistribute content from INCONVENIO shop</li>
+                    <li>Republish material from {shop.shopName} shop</li>
+                    <li>Sell, rent or sub-license material from {shop.shopName} shop</li>
+                    <li>Reproduce, duplicate or copy material from {shop.shopName} shop</li>
+                    <li>Redistribute content from {shop.shopName} shop</li>
                 </ul>
                 <h3>Hyperlinking to our Content</h3>
                 <p>
@@ -73,7 +74,7 @@ const TermsContent = () => {
                 </p>
                 <h3>Privacy</h3>
                 <p>
-                    Please read our: <LinkButton URL={"/privacy"} text={"INCONVENIO Privacy Policy"}/>
+                    Please read our: <LinkButton URL={"/privacy"} text={shop.shopName + " Privacy Policy"}/>
                 </p>
                 <h3>Reservation of Rights</h3>
                 <p>

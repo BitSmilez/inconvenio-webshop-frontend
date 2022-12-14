@@ -1,15 +1,16 @@
 import "./NavBar.css"
 import ShopLogo from "../ShopLogo/ShopLogo";
+import shopConstants from "../../data/shopConstants";
 
 const NavBar = () => {
 
-    const shopName = "INCONVENIO";
+
 
     return (
         <div className={"navbar-wrapper"}>
             <div className={"navbar-container"}>
                 <div className={"navbar-left"}>
-                    <ShopLogo name={shopName} />
+                    <ShopLogo name={shopConstants.shopName} />
                 </div>
                 <div className={"navbar-center"}>
 
