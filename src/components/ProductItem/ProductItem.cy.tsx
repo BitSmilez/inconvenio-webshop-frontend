@@ -15,6 +15,8 @@ const product_with_sales_price = {
     image: "https://ucarecdn.com/8f73e3b8-bc9c-46d1-a0f7-1bad02629692",
 }
 
+const discount = Math.floor((product_with_sales_price.price - product_with_sales_price.salesPrice) / product_with_sales_price.price * 100)
+
 describe("Normal ProductItem", () => {
     it("should mount", () => {
         cy.mount(<ProductItem product={product_normal}/>)
@@ -71,6 +73,14 @@ describe("ProductItem with sales price", () => {
     it("should have the old price crossed out", () => {
         cy.mount(<ProductItem product={product_with_sales_price}/>)
         cy.get('.product-item-price-if-on-sale').should('have.css', 'text-decoration-line', 'line-through')
+    });
+    it("should have a discount badge", () => {
+        cy.mount(<ProductItem product={product_with_sales_price}/>)
+        cy.get('.discount-badge').should('exist')
+    });
+    it("should have the correct discount percentage in the badge", () => {
+        cy.mount(<ProductItem product={product_with_sales_price}/>)
+        cy.get('.discount-badge').contains(discount)
     });
 });
 
