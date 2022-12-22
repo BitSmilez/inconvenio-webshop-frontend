@@ -1,10 +1,20 @@
 import "./ProductItem.css";
 import DiscountBadge from "../DiscountBadge/DiscountBadge";
+import {useNavigate} from "react-router-dom";
 
 const ProductItem = ({product}: { product: any }) => {
 
+    const navigate = useNavigate();
+
+    const handleGoToDetails = () => {
+        navigate({
+            pathname: "/products",
+            search: "?product=" + product.id,
+        });
+    }
+
     return (
-        <div className="product-item">
+        <div onClick={() => handleGoToDetails()} className="product-item">
             <div className="product-item-image">
                 {product.salesPrice &&
                     <DiscountBadge price={product.price} discountedPrice={product.salesPrice}/>
