@@ -6,6 +6,7 @@ import LegalPage from "./pages/LegalPage";
 import FAQPage from "./pages/FAQPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import ReturnPolicyPage from "./pages/ReturnPolicyPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
                     <Route path="/faq" element={<FAQPage/>}/>
                     <Route path="/terms" element={<TermsAndConditionsPage/>}/>
                     <Route path="/refunds" element={<ReturnPolicyPage/>}/>
+                    <Route path ="/products" element={<ProductDetailsPage/>}/>
                 </Routes>
             </Router>
         </>
