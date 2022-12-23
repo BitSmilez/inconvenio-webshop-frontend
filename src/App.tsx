@@ -6,13 +6,13 @@ import LegalPage from "./pages/LegalPage";
 import FAQPage from "./pages/FAQPage";
 import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import ReturnPolicyPage from "./pages/ReturnPolicyPage";
+import SearchPage from "./components/SearchPage/SearchPage";
 
 
 const App = () => {
 
     // TODO: Dynamic Messages from API
     const bannerMessage = "FREE SHIPPING ON ORDERS OVER $100";
-
 
     return (
         <>
@@ -27,6 +27,7 @@ const App = () => {
                     <Route path="/faq" element={<FAQPage/>}/>
                     <Route path="/terms" element={<TermsAndConditionsPage/>}/>
                     <Route path="/refunds" element={<ReturnPolicyPage/>}/>
+                    <Route path="/products/search/:query" element={  <SearchPage/>}/>
                 </Routes>
             </Router>
         </>
