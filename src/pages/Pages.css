@@ -1,0 +1,10 @@
+.error-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-page-title {
+    font-family: 'Saira', sans-serif;
+}
