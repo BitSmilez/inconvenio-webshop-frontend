@@ -1,18 +1,24 @@
-.nav-container {
+
+
+.navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .navbar-left {
+    flex: 1;
 
 }
 
 .navbar-center {
+    flex: 4;
+    display: flex;
+    justify-content: center;
 
 }
 
 .navbar-right {
+    flex: 1;
 
 }

@@ -6,7 +6,7 @@ const LandingPage = () => {
     return (
         <>
             <NavBar/>
-            <ProductList url={"http://localhost:8080/products"}/>
+            <ProductList label={"All Products"} url={"http://localhost:8080/products"}/>
             <Footer/>
         </>
     );
