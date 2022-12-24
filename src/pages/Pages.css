@@ -8,3 +8,8 @@
 .error-page-title {
     font-family: 'Saira', sans-serif;
 }
+
+.product-details-wrapper {
+    display: flex;
+    justify-content: center;
+}

@@ -8,6 +8,8 @@ import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
 import ReturnPolicyPage from "./pages/ReturnPolicyPage";
 import SearchPage from "./pages/SearchPage";
 import ErrorPage from "./pages/ErrorPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
+
 
 
 const App = () => {
@@ -28,10 +30,12 @@ const App = () => {
                     <Route path="/faq" element={<FAQPage/>}/>
                     <Route path="/terms" element={<TermsAndConditionsPage/>}/>
                     <Route path="/refunds" element={<ReturnPolicyPage/>}/>
+                    <Route path ="/products" element={<ProductDetailsPage/>}/>
                     <Route path="/products/search/:query" element={<SearchPage/>}/>
 
                     {/*Fallback Route */}
-                    <Route path="*" element={<ErrorPage/>}/>
+                    <Route path="*" element={<ErrorPage/>}/>                    
+
                 </Routes>
             </Router>
         </>

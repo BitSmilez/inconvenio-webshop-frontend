@@ -1,0 +1,128 @@
+.product-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: 75vh;
+    font-family: 'Saira', sans-serif;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+
+
+.product-details-image-container {
+    width: 500px;
+    height: 500px;
+}
+
+.product-details-image-area {
+    flex: 1;
+}
+
+.product-details-info {
+    flex-direction: column;
+    flex: 1;
+    padding: 0 50px;
+    font-size: 25px;
+}
+
+.product-details-other-infos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 150px;
+
+}
+
+.product-details-other-infos h3 {
+    font-size: 20px;
+    color: #6e7285;
+    height: 15px;
+}
+
+.product-details-other-infos p {
+    font-size: 18px;
+}
+
+.product-details-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.product-details-price-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid #6e7285;
+    padding: 10px;
+    border-radius: 10px;
+    height: 150px;
+}
+
+.price-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-area span {
+    font-size: 15px;
+}
+
+.product-item-price-normal {
+    font-size: 25px;
+
+}
+
+.product-item-price-if-on-sale {
+    color: red;
+    text-decoration: line-through;
+}
+
+.product-item-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-left: 150px;
+}
+
+.product-details-button-area {
+    display: flex;
+    align-items: center;
+    flex-Wrap: wrap;
+}
+
+.add-to-cart-button {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-to-cart-button:hover {
+    background-color: #ddd;
+}
+
+.category-label {
+    font-size: 18px;
+    color: #6e7285;
+    height: 0;
+}
+
+.product-desc {
+    font-size: 18px;
+    color: #6e7285;
+}
+
+.product-name {
+    height: 15px;
+}
