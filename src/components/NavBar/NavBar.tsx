@@ -15,7 +15,6 @@ const NavBar = () => {
                 </div>
                 <div className={"navbar-center"}>
                     <SearchBar/>
-
                 </div>
                 <div className={"navbar-right"}>
 
