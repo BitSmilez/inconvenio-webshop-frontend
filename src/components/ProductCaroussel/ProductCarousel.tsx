@@ -10,7 +10,7 @@ const ProductCarousel = ({category, remove_id}: { category: string, remove_id: s
 
     return (
         <div className={"caroussel-wrapper"}>
-            <h1>You might like these totally useful awesomeness products!</h1>
+            <h1>You might like these totally useful products!</h1>
             <div className={"caroussel"}>
                 {products && products.map((product: any) => (
                     <ProductItem key={product.id} product={product}/>
