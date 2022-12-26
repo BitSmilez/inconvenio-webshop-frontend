@@ -32,6 +32,7 @@ const App = () => {
                     <Route path="/refunds" element={<ReturnPolicyPage/>}/>
                     <Route path ="/products" element={<ProductDetailsPage/>}/>
                     <Route path="/products/search/:query" element={<SearchPage/>}/>
+                    <Route path="/products/category/:category" element={<SearchPage/>}/>
 
                     {/*Fallback Route */}
                     <Route path="*" element={<ErrorPage/>}/>                    

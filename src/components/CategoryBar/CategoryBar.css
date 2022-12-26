@@ -1,0 +1,41 @@
+.category-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.category-bar li {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.4rem;
+    list-style: none;
+    cursor: pointer;
+}
+
+
+.category-bar li::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.category-bar li:hover::before {
+    transform: scaleX(1);
+}
+
+.category-bar-label {
+    color: black;
+}
+
+.category-bar-sale-label {
+    color: red;
+}
