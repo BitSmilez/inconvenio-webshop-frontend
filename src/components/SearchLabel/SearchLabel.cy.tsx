@@ -6,6 +6,6 @@ describe("SearchLabel", () => {
     });
     it("should have the correct label", () => {
         cy.mount(<SearchLabel text={"Test Label"}/>);
-        cy.get(".search-label").contains("Test Label");
+        cy.get(".search-label").contains("TEST LABEL");
     });
 });
