@@ -5,6 +5,7 @@ import ProductDetails from "../components/ProductDetails/ProductDetails";
 import CircularLoader from "../components/CircularLoader/CircularLoader";
 import "./Pages.css";
 import Footer from "../components/Footer/Footer";
+import ProductCarousel from "../components/ProductCaroussel/ProductCarousel";
 
 const ProductDetailsPage = () => {
 
@@ -20,6 +21,7 @@ const ProductDetailsPage = () => {
                 {errMsg && <div> {errMsg} </div>}
                 {product && <ProductDetails product={product}/>}
             </div>
+            <ProductCarousel category={product.category}/>
             <Footer/>
         </>
     )
