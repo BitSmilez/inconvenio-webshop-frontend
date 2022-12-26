@@ -6,8 +6,14 @@ import ProductDetailsMainInfos from "./ProductDetailsMainInfos";
 import ProductDetailsDesc from "./ProductDetailsDesc";
 import ProductDetailsImage from "./ProductDetailsImage";
 import ProductDetailsButtonArea from "./ProductDetailsButtonArea";
+import {useEffect} from "react";
 
 const ProductDetails = ({product}: { product: any }) => {
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
 
     return (
         <div className={"product-details-container"}>
