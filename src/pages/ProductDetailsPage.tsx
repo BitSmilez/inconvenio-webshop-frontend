@@ -21,7 +21,7 @@ const ProductDetailsPage = () => {
                 {errMsg && <div> {errMsg} </div>}
                 {product && <ProductDetails product={product}/>}
             </div>
-            <ProductCarousel category={product.category}/>
+            <ProductCarousel category={product.category} remove_id = {product.id}/>
             <Footer/>
         </>
     )
