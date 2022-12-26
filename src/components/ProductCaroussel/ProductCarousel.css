@@ -1,8 +1,7 @@
 h1 {
+    font-family: 'Saira', sans-serif;
     color: black;
 }
-
-
 .caroussel {
     align-content: center;
     display: flex;
@@ -11,4 +10,14 @@ h1 {
     height:  600px;
     overflow-x: scroll;
     overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding: 5px;
+
 }
+
+.caroussel-wrapper {
+  margin: 0 75px 0 75px;
+}
+
+
+
