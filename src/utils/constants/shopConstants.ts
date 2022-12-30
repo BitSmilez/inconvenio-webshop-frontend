@@ -1,5 +1,5 @@
 // Global Shop Related Variables / Constants
-const shopConstants = {
+export const shopConstants = {
     shopName: "INCONVENIO",
     shopEmail: "shop@inconvenio-shop.de",
     shopSupportEmail: "support@inconvenio-shop.de",
