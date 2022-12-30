@@ -2,6 +2,8 @@ import ProductItem from "./ProductItem";
 import {MemoryRouter as TestRouter} from 'react-router-dom';
 import CustomerContextProvider from "../../context/CustomerContext";
 import {Provider as AlertProvider} from 'react-alert'
+import {mount} from "cypress/react18";
+
 
 
 const product_normal = {
@@ -23,7 +25,7 @@ const discount = Math.floor((product_with_sales_price.price - product_with_sales
 
 describe("Normal ProductItem", () => {
     beforeEach(() => {
-        cy.mount(
+        mount(
             <AlertProvider>
                 <CustomerContextProvider>
                     <TestRouter>
@@ -70,7 +72,7 @@ describe("Normal ProductItem", () => {
 
 describe("ProductItem with sales price", () => {
     beforeEach(() => {
-        cy.mount(
+        mount(
             <AlertProvider>
                 <CustomerContextProvider>
                     <TestRouter>

@@ -1,18 +1,19 @@
 import ShopLogo from "./ShopLogo";
 import {MemoryRouter as TestRouter} from 'react-router-dom';
+import {mount} from "cypress/react18";
 
 const shopName = "INCONVENIO";
 
 describe("ShopLogo", () => {
     it("should mount", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <ShopLogo name={shopName}/>
             </TestRouter>);
     });
 
     it("should have the correct name", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <ShopLogo name={shopName}/>
             </TestRouter>);
@@ -20,7 +21,7 @@ describe("ShopLogo", () => {
     });
 
     it("should redirect to home page on click", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <ShopLogo name={shopName}/>
             </TestRouter>);

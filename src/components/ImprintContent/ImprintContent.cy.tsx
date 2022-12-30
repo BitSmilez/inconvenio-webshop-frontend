@@ -1,15 +1,17 @@
 import {MemoryRouter as TestRouter} from 'react-router-dom';
 import ImprintContent from "./ImprintContent";
+import {mount} from "cypress/react18";
+
 
 describe("ImprintContent", () => {
     it("should mount", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <ImprintContent/>
             </TestRouter>);
     });
     it("should have a back to shop link", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <ImprintContent/>
             </TestRouter>);

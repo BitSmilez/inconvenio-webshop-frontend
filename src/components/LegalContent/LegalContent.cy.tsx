@@ -1,15 +1,17 @@
 import LegalContent from "./LegalContent";
 import {MemoryRouter as TestRouter} from 'react-router-dom';
+import {mount} from "cypress/react18";
+
 
 describe("LegalContent", () => {
     it("should mount", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
     });
     it("should have a back to shop link", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
@@ -17,14 +19,14 @@ describe("LegalContent", () => {
         cy.get("li > a").should("have.text", "Back to Shop");
     });
     it("back to shop link should have a href to /", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
         cy.get("li > a").should("have.attr", "href", "/");
     });
     it("click on back to shop link should redirect to /", () => {
-        cy.mount(
+        mount(
             <TestRouter>
                 <LegalContent/>
             </TestRouter>);
