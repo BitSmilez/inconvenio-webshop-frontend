@@ -1,7 +1,6 @@
 import {useLocation, useParams} from "react-router-dom";
 import NavBar from "../components/NavBar/NavBar";
 import ProductList from "../components/ProductList/ProductList";
-import Footer from "../components/Footer/Footer";
 
 const SearchPage = () => {
     const {query, category} = useParams()
@@ -17,7 +16,6 @@ const SearchPage = () => {
         <div>
             <NavBar/>
             <ProductList label={current === "search" ? "Search Results for '" + query + "'" : category as string} url={url}/>
-            <Footer/>
         </div>
     )
 }
