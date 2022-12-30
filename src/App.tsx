@@ -1,15 +1,20 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import LandingPage from "./pages/LandingPage";
 import AdBanner from "./components/AdBanner/AdBanner";
-import ImprintPage from "./pages/ImprintPage";
-import LegalPage from "./pages/LegalPage";
-import FAQPage from "./pages/FAQPage";
-import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
-import ReturnPolicyPage from "./pages/ReturnPolicyPage";
 import SearchPage from "./pages/SearchPage";
 import ErrorPage from "./pages/ErrorPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
-
+import Footer from "./components/Footer/Footer";
+import {Provider as AlertProvider} from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
+import CustomerContextProvider from "./context/CustomerContext";
+import StaticPage from "./pages/StaticPage";
+import FAQContent from "./components/FAQContent/FAQContent";
+import TermsContent from "./components/TermsContent/TermsContent";
+import RefundsContent from "./components/RefundsContent/RefundsContent";
+import ImprintContent from "./components/ImprintContent/ImprintContent";
+import LegalContent from "./components/LegalContent/LegalContent";
+import {options} from "./utils/constants/alertOptions";
 
 
 const App = () => {
@@ -19,26 +24,29 @@ const App = () => {
 
     return (
         <>
-            {/* Components that are always shown on every Route */}
-            <AdBanner bannerMessage={bannerMessage}/>
-            {/* Routes */}
-            <Router>
-                <Routes>
-                    <Route path="/" element={<LandingPage/>}/>
-                    <Route path="/imprint" element={<ImprintPage/>}/>
-                    <Route path="/privacy" element={<LegalPage/>}/>
-                    <Route path="/faq" element={<FAQPage/>}/>
-                    <Route path="/terms" element={<TermsAndConditionsPage/>}/>
-                    <Route path="/refunds" element={<ReturnPolicyPage/>}/>
-                    <Route path ="/products" element={<ProductDetailsPage/>}/>
-                    <Route path="/products/search/:query" element={<SearchPage/>}/>
-                    <Route path="/products/category/:category" element={<SearchPage/>}/>
-
-                    {/*Fallback Route */}
-                    <Route path="*" element={<ErrorPage/>}/>                    
-
-                </Routes>
-            </Router>
+            <CustomerContextProvider>
+                <AlertProvider template={AlertTemplate} {...options}>
+                    <AdBanner bannerMessage={bannerMessage}/>
+                    {/* Routes */}
+                    <Router>
+                        <Routes>
+                            <Route path="/" element={<LandingPage/>}/>
+                            <Route path="/products" element={<ProductDetailsPage/>}/>
+                            <Route path="/products/search/:query" element={<SearchPage/>}/>
+                            <Route path="/products/category/:category" element={<SearchPage/>}/>
+                            {/*Static Pages */}
+                            <Route path="faq" element={<StaticPage content={<FAQContent/>}/>}/>
+                            <Route path="/terms" element={<StaticPage content={<TermsContent/>}/>}/>
+                            <Route path="/refunds" element={<StaticPage content={<RefundsContent/>}/>}/>
+                            <Route path="/imprint" element={<StaticPage content={<ImprintContent/>}/>}/>
+                            <Route path="/privacy" element={<StaticPage content={<LegalContent/>}/>}/>
+                            {/*Fallback Route */}
+                            <Route path="*" element={<ErrorPage/>}/>
+                        </Routes>
+                    </Router>
+                    <Footer/>
+                </AlertProvider>
+            </CustomerContextProvider>
         </>
     );
 }
