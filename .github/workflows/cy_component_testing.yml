@@ -12,9 +12,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Cypress Install
+      - name: Cypress Install Dependencies
         run: npm install --legacy-peer-deps
-      - name: Cypress run
+      - name: Cypress Install Typescript Dev Dependency
+        run: npm install --save-dev typescript
+      - name: Cypress run tests
         uses: cypress-io/github-action@v5.0.0
         with:
           install: false
