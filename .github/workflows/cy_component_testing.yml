@@ -12,12 +12,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: NPM Install Dependencies
-        run: |
-          npm install --legacy-peer-deps
       - name: Cypress run
         uses: cypress-io/github-action@v5.0.0
         with:
+          install: npm install --legacy-peer-deps
           build: npm run build
           start: npm start
           command: npx cypress run --component --config video=false
