@@ -1,7 +1,8 @@
 import "./LegalContent.css"
 import LinkButton from "../LinkButton/LinkButton";
 import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
-import shop from "../../data/shopConstants";
+import {shopConstants as shop} from "../../utils/constants/shopConstants";
+
 const LegalContent = () => {
     return (
         <div className={"legal-content"}>
