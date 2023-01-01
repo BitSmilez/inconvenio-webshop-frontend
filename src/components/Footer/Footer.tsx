@@ -3,7 +3,7 @@ import FooterLinks from "./FooterLinks";
 import FooterShopInfos from "./FooterShopInfos";
 import FooterPaymentInfo from "./FooterPaymentInfo";
 import FooterShippingInfos from "./FooterShippingInfos";
-import shop from "../../data/shopConstants";
+import {shopConstants as shop} from "../../utils/constants/shopConstants";
 
 const Footer = () => {
 

@@ -1,5 +1,5 @@
 import "./RefundsContent.css";
-import shop from "../../data/shopConstants.js";
+import {shopConstants as shop} from "../../utils/constants/shopConstants";
 
 import GenericPageHeadline from "../GenericPageHeadline/GenericPageHeadline";
 import LinkButton from "../LinkButton/LinkButton";

@@ -1,11 +1,13 @@
 import SearchLabel from "./SearchLabel";
+import {mount} from "cypress/react18";
+
 
 describe("SearchLabel", () => {
     it("should mount", () => {
-        cy.mount(<SearchLabel text={"Test Label"}/>);
+        mount(<SearchLabel text={"Test Label"}/>);
     });
     it("should have the correct label", () => {
-        cy.mount(<SearchLabel text={"Test Label"}/>);
+        mount(<SearchLabel text={"Test Label"}/>);
         cy.get(".search-label").contains("TEST LABEL");
     });
 });

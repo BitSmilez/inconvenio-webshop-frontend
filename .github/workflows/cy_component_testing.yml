@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress Component Tests
 
 on:
  push:
@@ -12,10 +12,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
-      - name: Cypress run
+      - name: Cypress Install Dependencies
+        run: npm install --legacy-peer-deps
+      - name: Cypress Install Typescript Dev Dependency
+        run: npm install --save-dev typescript --legacy-peer-deps
+      - name: Cypress run tests
         uses: cypress-io/github-action@v5.0.0
         with:
+          install: false
           build: npm run build
           start: npm start
           command: npx cypress run --component --config video=false

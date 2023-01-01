@@ -4,7 +4,6 @@ import NavBar from "../components/NavBar/NavBar";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import CircularLoader from "../components/CircularLoader/CircularLoader";
 import "./Pages.css";
-import Footer from "../components/Footer/Footer";
 import ProductCarousel from "../components/ProductCaroussel/ProductCarousel";
 
 const ProductDetailsPage = () => {
@@ -22,7 +21,6 @@ const ProductDetailsPage = () => {
                 {product && <ProductDetails product={product}/>}
             </div>
             <ProductCarousel category={product.category} remove_id={product.id}/>
-            <Footer/>
         </>
     )
 }

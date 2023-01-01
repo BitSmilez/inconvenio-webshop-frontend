@@ -1,11 +1,13 @@
 import NotifyDiv from "./NotifyDiv";
+import {mount} from "cypress/react18";
+
 
 describe("NotifyDiv", () => {
     it("should mount", () => {
-        cy.mount(<NotifyDiv notifyMessage={"Test Notify"}/>);
+        mount(<NotifyDiv notifyMessage={"Test Notify"}/>);
     });
     it("should have the correct message", () => {
-        cy.mount(<NotifyDiv notifyMessage={"Test Notify"}/>);
+        mount(<NotifyDiv notifyMessage={"Test Notify"}/>);
         cy.get(".notify-div").contains("Test Notify");
     });
 });
