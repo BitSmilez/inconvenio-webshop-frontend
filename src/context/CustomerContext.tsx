@@ -22,6 +22,9 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
     const changeCartItemCount = (count: number) => {
         setCustomerData({...customerData, cartItemCount: customerData.cartItemCount + count})
     }
+    const setCartItemCount = (count: number) => {
+        setCustomerData({...customerData, cartItemCount: count})
+    }
 
 
     return (
@@ -29,6 +32,7 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
             customerData,
             changeWishlistItemCount,
             changeCartItemCount,
+            setCartItemCount
         }}>
             {children}
         </CustomerContext.Provider>
