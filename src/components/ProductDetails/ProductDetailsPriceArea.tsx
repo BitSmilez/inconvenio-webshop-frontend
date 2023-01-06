@@ -2,7 +2,13 @@ import "./ProductDetails.css"
 import {IconButton} from "@mui/material";
 import {Add, DiscountOutlined, Remove} from "@mui/icons-material";
 
-const ProductDetailsPriceArea = ({price, salesPrice}: { price: number, salesPrice: number }) => {
+const ProductDetailsPriceArea = ({price, salesPrice, quantity, changeQuantity}: {
+                                     price: number,
+                                     salesPrice: number,
+                                     quantity: number,
+                                     changeQuantity: any,
+}) => {
+
     return (
         <div className={"price-area"}>
             {salesPrice &&
@@ -11,6 +17,7 @@ const ProductDetailsPriceArea = ({price, salesPrice}: { price: number, salesPric
                     <DiscountOutlined color={"success"}/>
                 </>
             }
+            {/*If there is no SalesPrice available, add the normal price CSS class, else add the sale class*/}
             <p className={salesPrice != null
                 ? "product-item-price-if-on-sale"
                 : "product-item-price-normal"}>
@@ -18,11 +25,11 @@ const ProductDetailsPriceArea = ({price, salesPrice}: { price: number, salesPric
             <span className={"product-details-price-info"}>Incl. VAT</span>
             <div className={"product-item-quantity"}>
                 <p>QTY: </p>
-                <IconButton className={"cart-item-btn"} color="default" aria-label="Add to cart">
+                <IconButton onClick={() => changeQuantity(quantity + 1)} className={"cart-item-btn"} color="default" aria-label="Add to cart">
                     <Add/>
                 </IconButton>
-                <p> 1 </p>
-                <IconButton className={"cart-item-btn"} color="default" aria-label="Add to cart">
+                <p> {quantity} </p>
+                <IconButton onClick={() => changeQuantity(quantity - 1)} className={"cart-item-btn"} color="default" aria-label="Add to cart">
                     <Remove/>
                 </IconButton>
             </div>
