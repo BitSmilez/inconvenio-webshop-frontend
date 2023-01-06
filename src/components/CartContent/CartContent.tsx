@@ -16,15 +16,13 @@ const CartContent = () => {
     }
 
     const {fetchedData: cart}: any =  useFetch("http://localhost:8081/cart/1234")
+    console.log(cart)
     let products = cart.items
-    cart["shipping"] = 0
-
     return (
         <>
-
             <div className={"cart-button-row"}>
                 <LinkButton URL={"/"} text={"Continue Shopping"}></LinkButton>
-                <LinkButton URL={"/checkout"} text={"Continue Shopping"}></LinkButton>
+                <LinkButton URL={"/checkout"} text={"Checkout"}></LinkButton>
             </div>
             {products && products.map((product: any) => (
                 <CartProductItem key={product.productID} product={product}/>
@@ -36,10 +34,10 @@ const CartContent = () => {
                     </div>
                     <div className={"cart-summary-details"}>
                         <CustomDivider color={"#000000"}/>
-                        <p> Price: {cart.total}€ <br/> including {cart.vat}€ VAT ({cart.taxRate}%)  </p>
+                        <p> Price: {cart.subTotal}€ <br/> including {cart.subTotalVat}€ VAT ({cart.taxRate}%)  </p>
                         <p> Shipping: {cart.shipping}€ </p>
                         <CustomDivider color={"#000000"}/>
-                        <p className={"cart-summary-total"}> Total: {cart.total}€ </p>
+                        <p className={"cart-summary-total"}> Total: {cart.total}€ <br/> including {cart.totalVat}€ VAT ({cart.taxRate}%)  </p>
                     </div>
                 </div>
 
