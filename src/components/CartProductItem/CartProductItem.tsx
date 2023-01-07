@@ -1,8 +1,11 @@
 import {IconButton} from "@mui/material";
 import {Add, Remove} from "@mui/icons-material";
 import "./CartProductItem.css";
+import {useNavigate} from "react-router-dom";
 
 const CartProductItem = ({product}: { product: any }) => {
+
+    const navigate = useNavigate();
 
     let price = product.productSalesPrice ? product.productSalesPrice : product.productPrice;
     let name = product.productName
@@ -10,9 +13,16 @@ const CartProductItem = ({product}: { product: any }) => {
     let quantity = product.quantity
     let total = price * quantity
 
+    const handleGoBackToDetails = () => {
+        navigate({
+            pathname: "/products",
+            search: "?product=" + product.productID,
+        });
+    }
+
     return (
         <>
-            <div className={"cart-product-info"}>
+            <div onClick={handleGoBackToDetails} className={"cart-product-info"}>
                 <div className={"cart-product-container"}>
                     <div className={"cart-product-details"}>
                         <img src={img} alt={name}/>
