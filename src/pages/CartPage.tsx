@@ -1,9 +1,10 @@
 import CartContent from "../components/CartContent/CartContent";
+import NavBar from "../components/NavBar/NavBar";
 
 const CartPage = () => {
     return (
         <div>
-            <h1>Cart Page</h1>
+            <NavBar/>
             <CartContent/>
         </div>
     );
