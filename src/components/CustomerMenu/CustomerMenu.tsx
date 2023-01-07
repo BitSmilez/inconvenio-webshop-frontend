@@ -5,7 +5,6 @@ import {useContext} from "react";
 import {CustomerContext} from "../../context/CustomerContext";
 
 const CustomerMenu = () => {
-
     const {customerData}: any = useContext(CustomerContext);
 
     return(

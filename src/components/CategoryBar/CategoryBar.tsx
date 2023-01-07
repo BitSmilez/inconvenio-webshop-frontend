@@ -5,7 +5,6 @@ const CategoryBar = () => {
 
     const navigate = useNavigate();
     const handleCategoryClick = (category: string) => {
-        console.log(category);
         navigate(`/products/category/${category}`);
     }
 
