@@ -3,17 +3,9 @@ import {Badge, IconButton} from "@mui/material";
 import {Link} from "react-router-dom";
 import {useContext} from "react";
 import {CustomerContext} from "../../context/CustomerContext";
-import {useFetch} from "../../hooks/useFetch";
 
 const CustomerMenu = () => {
     const {customerData}: any = useContext(CustomerContext);
-    const {setCartItemCount}: any = useContext(CustomerContext);
-
-    const {fetchedData: cart}: any =  useFetch("http://localhost:8081/cart/1234")
-
-
-    setCartItemCount(cart.quantity)
-
 
     return(
         <>
