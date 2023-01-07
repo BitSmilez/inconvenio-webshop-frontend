@@ -19,7 +19,7 @@ const ProductList = ({url, label, callback}: { url: string, label: string, callb
         if (callback) {
             handleCallback(products);
         }
-    }, [products])
+    })
 
     return (
         <>
