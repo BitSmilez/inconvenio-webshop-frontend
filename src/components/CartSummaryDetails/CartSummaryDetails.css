@@ -7,3 +7,19 @@
     font-size: 30px;
     margin: 10px;
 }
+
+.cart-summary-total {
+    font-size: 25px;
+    margin-bottom: -15px;
+    font-weight: bold;
+}
+
+.cart-summary-shipping {
+    font-size: 15px;
+    margin-top: -15px;
+}
+
+.cart-summary-vat {
+    font-size: 15px;
+    font-style: oblique;
+}
