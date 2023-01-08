@@ -15,7 +15,7 @@ const SearchPage = () => {
     return (
         <div>
             <NavBar/>
-            <ProductList label={current === "search" ? "Search Results for '" + query + "'" : category as string} url={url}/>
+            <ProductList label={current === "search" ? "Search Results for '" + query + "'" : category as string} url={url} callback={null}/>
         </div>
     )
 }

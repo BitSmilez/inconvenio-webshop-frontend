@@ -15,6 +15,8 @@ import RefundsContent from "./components/RefundsContent/RefundsContent";
 import ImprintContent from "./components/ImprintContent/ImprintContent";
 import LegalContent from "./components/LegalContent/LegalContent";
 import {options} from "./utils/constants/alertOptions";
+import CartPage from "./pages/CartPage";
+
 
 
 const App = () => {
@@ -40,6 +42,7 @@ const App = () => {
                             <Route path="/refunds" element={<StaticPage content={<RefundsContent/>}/>}/>
                             <Route path="/imprint" element={<StaticPage content={<ImprintContent/>}/>}/>
                             <Route path="/privacy" element={<StaticPage content={<LegalContent/>}/>}/>
+                            <Route path ="/cart" element={<CartPage/>}/>
                             {/*Fallback Route */}
                             <Route path="*" element={<ErrorPage/>}/>
                         </Routes>

@@ -4,3 +4,9 @@
     margin-left: 10px;
     height: 100vh;
 }
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
