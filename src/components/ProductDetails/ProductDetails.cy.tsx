@@ -140,14 +140,15 @@ describe("ProductDetails", () => {
         cy.get('.product-item-quantity > p').should("have.text", "QTY:  2 ");
     });
     it("click on minus button should decrease quantity by 1", () => {
+        cy.intercept('http://localhost:8081/cart/*', {})
         cy.get('.product-item-quantity > p').should("have.text", "QTY:  1 ");
         cy.get('[data-testid="AddIcon"]').click();
-        cy.wait(500);
         cy.get('.product-item-quantity > p').should("have.text", "QTY:  2 ");
         cy.get('[data-testid="RemoveIcon"]').click();
         cy.get('.product-item-quantity > p').should("have.text", "QTY:  1 ");
     });
     it("click on minus button should not decrease quantity below 1", () => {
+        cy.intercept('http://localhost:8081/cart/*', {})
         cy.get('.product-item-quantity > p').should("have.text", "QTY:  1 ");
         cy.get('[data-testid="RemoveIcon"]').click();
         cy.get('.product-item-quantity > p').should("have.text", "QTY:  1 ");
