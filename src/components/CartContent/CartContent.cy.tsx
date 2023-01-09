@@ -1,12 +1,16 @@
 import CartContent from "./CartContent";
 import {mount} from "cypress/react18";
 import CustomerContextProvider from "../../context/CustomerContext";
+import {MemoryRouter as TestRouter} from 'react-router-dom';
+
 
 describe("CartContent", () => {
     beforeEach(() => {
         mount(
             <CustomerContextProvider>
-                <CartContent/>
+                <TestRouter>
+                    <CartContent/>
+                </TestRouter>
             </CustomerContextProvider>
         );
     });
