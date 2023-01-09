@@ -23,7 +23,7 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
         if(!isLoading) {
             // iterate over cart items and sum up quantity
             let cartItemCount = 0;
-            cartCount.items.forEach((item: any) => {
+            cartCount.items?.forEach((item: any) => {
                 cartItemCount += item.quantity;
             })
             setCustomerData(customerData => ({...customerData, cartItemCount: cartItemCount}));
