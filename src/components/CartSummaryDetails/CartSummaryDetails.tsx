@@ -9,11 +9,11 @@ const CartSummaryDetails = ({cart}: { cart: any }) => {
         return (
             <div className={"cart-summary-details"}>
                 <CustomDivider color={"#000000"}/>
-                <p> Price: {cart.subTotal}€ <br/> including {cart.subTotalVat}€ VAT ({cart.taxRate}%) </p>
-                <p> Shipping: {cart.shipping}€ </p>
+                <p> Subtotal: ${cart.subTotal?.toFixed(2)} <br/> </p>
+                <p className={"cart-summary-shipping"}> Shipping: ${cart.shipping?.toFixed(2)} </p>
                 <CustomDivider color={"#000000"}/>
-                <p className={"cart-summary-total"}> Total: {cart.total}€ <br/> including {cart.totalVat}€ VAT
-                    ({cart.taxRate}%) </p>
+                <p className={"cart-summary-total"}> Total: ${cart.total?.toFixed(2)} </p>
+                <p className={"cart-summary-vat"}> including {cart.totalVat?.toFixed(2)}€ VAT ({cart.taxRate}%) </p>
             </div>
         )
     } else {

@@ -1,12 +1,22 @@
 import CartContent from "./CartContent";
 import {mount} from "cypress/react18";
+import CustomerContextProvider from "../../context/CustomerContext";
+import {MemoryRouter as TestRouter} from 'react-router-dom';
+
 
 describe("CartContent", () => {
     beforeEach(() => {
-        mount(<CartContent />);
+        mount(
+            <CustomerContextProvider>
+                <TestRouter>
+                    <CartContent/>
+                </TestRouter>
+            </CustomerContextProvider>
+        );
     });
 
-    it("should mount", () => {});
+    it("should mount", () => {
+    });
 
     it("should have a continue shopping and checkout button", () => {
         cy.get(':nth-child(1) > .link-button-link').should('exist');
