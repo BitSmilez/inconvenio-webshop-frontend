@@ -17,7 +17,7 @@ const ProductItem = ({product}: { product: any }) => {
     const {changeCartItemCount}: any = useContext(CustomerContext);
 
 
-    const handleGoToDetails = () => {
+    const handleNavigateToDetails = () => {
         navigate({
             pathname: "/products",
             search: "?product=" + product.id,
@@ -47,7 +47,7 @@ const ProductItem = ({product}: { product: any }) => {
 
 
     return (
-        <div onClick={() => handleGoToDetails()} className="product-item">
+        <div onClick={() => handleNavigateToDetails()} className="product-item">
             <div className="product-item-image">
                 <IconButton onClick={(e) => handleQuickAddToCart(e)} sx={{position: "absolute"}}
                             className={"pList-add-to-cart-icon"} color="default"
