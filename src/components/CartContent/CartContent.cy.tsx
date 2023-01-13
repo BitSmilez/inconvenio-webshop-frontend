@@ -25,8 +25,8 @@ describe("CartContent", () => {
     it("should have a cart item container", () => {
         cy.get('.cart-container').should('exist');
     });
-    it("should have a cart details container", () => {
-        cy.get('.cart-details-container').should('exist');
+    it("should not have a cart details container when there are not products", () => {
+        cy.get('.cart-details-container').should('not.exist');
     });
     it("should have a headline", () => {
         cy.get('.headline').should('exist');
