@@ -5,6 +5,8 @@ import {useNavigate} from "react-router-dom";
 import {useContext} from "react";
 import {CustomerContext} from "../../context/CustomerContext";
 import {useAlert} from 'react-alert'
+import {removeFromCart} from "../../utils/helpers/cartHelper";
+
 
 
 const CartProductItem = ({product}: { product: any }) => {
@@ -27,25 +29,8 @@ const CartProductItem = ({product}: { product: any }) => {
 
     const handleRemoveFromCart = async (e: any) => {
         e.stopPropagation();
-        fetch("http://localhost:8080/remove-from-cart", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                productID: product.productID,
-                cartID: customer.customerID,
-            }),
-        })
-            .then((res) => {
-                if (res.status === 200) {
-                    window.location.reload();
-                } else {
-                    alert.show("Something went wrong :/")
-                }
-            });
+        await removeFromCart(product.productID, customer.customerID, alert);
     }
-
 
     return (
         <>

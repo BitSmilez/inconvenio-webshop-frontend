@@ -9,6 +9,7 @@ import ProductDetailsButtonArea from "./ProductDetailsButtonArea";
 import {useContext, useEffect, useState} from "react";
 import {CustomerContext} from "../../context/CustomerContext";
 import {useAlert} from "react-alert";
+import {addToCart} from "../../utils/helpers/cartHelper";
 
 const ProductDetails = ({product}: { product: any }) => {
 
@@ -22,25 +23,8 @@ const ProductDetails = ({product}: { product: any }) => {
             setSelectedQuantity(quantity);
         }
     }
-    const handleAddToCart = () => {
-        fetch("http://localhost:8080/add-to-cart", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                productID: product.id.toString(),
-                quantity: selectedQuantity,
-            }),
-        })
-            .then((res) => {
-                if (res.status === 200) {
-                    changeCartItemCount(selectedQuantity);
-                    alert.show("Item Added to cart!")
-                } else {
-                    alert.show("Error adding item to cart!")
-                }
-            });
+    const handleAddToCart = async () => {
+        await addToCart(product.id.toString(), selectedQuantity, changeCartItemCount, alert);
     }
 
     useEffect(() => {
