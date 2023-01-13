@@ -10,7 +10,7 @@ import {CustomerContext} from "../../context/CustomerContext";
 const CartContent = () => {
 
     const [cart, setCart] = useState<any>([]);
-    const {customerData}: any = useContext(CustomerContext);
+    const {customer}: any = useContext(CustomerContext);
 
     return (
         <div className={"cart-wrapper"}>
@@ -22,14 +22,16 @@ const CartContent = () => {
                 <LinkButton URL={"/checkout"} text={"Checkout"}></LinkButton>
             </div>
             <div className={"cart-content-wrapper"}>
-                <ProductList url={"http://localhost:8081/cart/" + customerData.customer} label={""} callback={setCart}/>
-                <div className={"cart-details-container"}>
-                    <div className={"cart-summary-headline-container"}>
-                        <h1 className={"cart-summary-headline"}>YOUR ORDER IS READY</h1>
-                        <ShoppingBag fontSize={"large"} sx={{mt: 1.75}}/>
+                <ProductList url={"http://localhost:8081/cart/" + customer.customerID} label={""} callback={setCart}/>
+                {cart.items?.length > 0 &&
+                    <div className={"cart-details-container"}>
+                        <div className={"cart-summary-headline-container"}>
+                            <h1 className={"cart-summary-headline"}>YOUR ORDER IS READY</h1>
+                            <ShoppingBag fontSize={"large"} sx={{mt: 1.75}}/>
+                        </div>
+                        <CartSummaryDetails cart={cart}/>
                     </div>
-                    <CartSummaryDetails cart={cart}/>
-                </div>
+                }
             </div>
         </div>
     )
