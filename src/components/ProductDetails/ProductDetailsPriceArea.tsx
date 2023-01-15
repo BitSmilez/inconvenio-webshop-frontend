@@ -3,11 +3,13 @@ import {IconButton} from "@mui/material";
 import {Add, DiscountOutlined, Remove} from "@mui/icons-material";
 
 const ProductDetailsPriceArea = ({price, salesPrice, quantity, changeQuantity}: {
-                                     price: number,
-                                     salesPrice: number,
-                                     quantity: number,
-                                     changeQuantity: any,
+    price: number,
+    salesPrice: number,
+    quantity: number,
+    changeQuantity: any,
 }) => {
+
+    const classNameForPriceTag = salesPrice ? "product-item-price-if-on-sale" : "product-item-price-normal";
 
     return (
         <div className={"price-area"}>
@@ -17,19 +19,21 @@ const ProductDetailsPriceArea = ({price, salesPrice, quantity, changeQuantity}: 
                     <DiscountOutlined color={"success"}/>
                 </>
             }
-            {/*If there is no SalesPrice available, add the normal price CSS class, else add the sale class*/}
-            <p className={salesPrice != null
-                ? "product-item-price-if-on-sale"
-                : "product-item-price-normal"}>
-                {"$" + price?.toFixed(2)}</p>
+            <p className={classNameForPriceTag}>{"$" + price?.toFixed(2)}</p>
             <span className={"product-details-price-info"}>Incl. VAT</span>
             <div className={"product-item-quantity"}>
                 <p>QTY: </p>
-                <IconButton onClick={() => changeQuantity(quantity + 1)} className={"cart-item-btn"} color="default" aria-label="Add to cart">
+                <IconButton onClick={() => changeQuantity(quantity + 1)}
+                            className={"cart-item-btn"}
+                            color="default"
+                            aria-label="Add to cart">
                     <Add/>
                 </IconButton>
                 <p> {quantity} </p>
-                <IconButton onClick={() => changeQuantity(quantity - 1)} className={"cart-item-btn"} color="default" aria-label="Add to cart">
+                <IconButton onClick={() => changeQuantity(quantity - 1)}
+                            className={"cart-item-btn"}
+                            color="default"
+                            aria-label="Add to cart">
                     <Remove/>
                 </IconButton>
             </div>

@@ -5,17 +5,17 @@ import {useContext} from "react";
 import {CustomerContext} from "../../context/CustomerContext";
 
 const CustomerMenu = () => {
-    const {customerData}: any = useContext(CustomerContext);
+    const {customer}: any = useContext(CustomerContext);
 
     return(
         <>
             <IconButton className={"fav-icon-btn"} component={Link} to="/wishlist" color="default" aria-label="Wishlist">
-                <Badge className={"favBadge"} badgeContent={customerData.wishlistItemCount} color={"primary"}>
+                <Badge className={"favBadge"} badgeContent={customer.wishlistItemCount} color={"primary"}>
                     <FavoriteBorder/>
                 </Badge>
             </IconButton>
             <IconButton className={"cart-icon-btn"} component={Link} to="/cart" color="default" aria-label="Cart">
-                <Badge className={"cartBadge"} badgeContent={customerData.cartItemCount} color={"primary"}>
+                <Badge className={"cartBadge"} badgeContent={customer.cartItemCount} color={"primary"}>
                     <ShoppingCartOutlined/>
                 </Badge>
             </IconButton>

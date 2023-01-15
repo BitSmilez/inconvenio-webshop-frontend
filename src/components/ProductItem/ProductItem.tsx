@@ -8,6 +8,7 @@ import {CustomerContext} from "../../context/CustomerContext";
 import {useContext} from "react";
 import ProductItemInfo from "./ProductItemInfo";
 import ProductItemPriceArea from "./ProductItemPriceArea";
+import {addToCart} from "../../utils/helpers/cartHelper";
 
 
 const ProductItem = ({product}: { product: any }) => {
@@ -17,40 +18,25 @@ const ProductItem = ({product}: { product: any }) => {
     const {changeCartItemCount}: any = useContext(CustomerContext);
 
 
-    const handleGoToDetails = () => {
+    const handleNavigateToDetails = () => {
         navigate({
             pathname: "/products",
             search: "?product=" + product.id,
         });
     }
-    const handleQuickAddToCart = async (e: any) => {
+    const handleAddToCart = async (e: any) => {
         e.stopPropagation();
-        fetch("http://localhost:8080/add-to-cart", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                productID: product.id.toString(),
-                quantity: 1,
-            }),
-        })
-            .then((res) => {
-                if (res.status === 200) {
-                    changeCartItemCount(1);
-                    alert.show("Item Added to cart!")
-                } else {
-                    alert.show("Error adding item to cart!")
-                }
-            });
+        await addToCart(product.id.toString(), 1, changeCartItemCount, alert);
     }
 
 
     return (
-        <div onClick={() => handleGoToDetails()} className="product-item">
+        <div onClick={() => handleNavigateToDetails()} className="product-item">
             <div className="product-item-image">
-                <IconButton onClick={(e) => handleQuickAddToCart(e)} sx={{position: "absolute"}}
-                            className={"pList-add-to-cart-icon"} color="default"
+                <IconButton onClick={(e) => handleAddToCart(e)}
+                            sx={{position: "absolute"}}
+                            className={"pList-add-to-cart-icon"}
+                            color="default"
                             aria-label="Add to cart">
                     <AddShoppingCart/>
                 </IconButton>
