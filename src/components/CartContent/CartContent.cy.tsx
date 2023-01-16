@@ -29,6 +29,7 @@ describe("CartContent", () => {
         cy.get('.cart-details-container').should('not.exist');
     });
     it("should have a headline", () => {
+        cy.intercept('http://localhost:8081/cart/*', {})
         cy.get('.headline').should('exist');
     });
 });

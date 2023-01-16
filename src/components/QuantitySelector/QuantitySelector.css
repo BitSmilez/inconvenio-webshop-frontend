@@ -1,0 +1,13 @@
+.cart-product-amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+}
+
+.cart-product-quantity-selector {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    margin-bottom: 10px;
+}
