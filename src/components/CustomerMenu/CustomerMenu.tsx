@@ -19,6 +19,9 @@ const CustomerMenu = () => {
                     <ShoppingCartOutlined/>
                 </Badge>
             </IconButton>
+            <IconButton className={"account-icon-btn"} component={Link} to="/login" color="default" aria-label="Account">
+            Login
+            </IconButton>
         </>
     )
 }
