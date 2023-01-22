@@ -29,7 +29,7 @@ function RegisterForm() {
                         window.alert("Error creating user!");
                     }
                 }
-                return response.json();
+                return response;
             })
             .then((data) => {
                 console.log("User created successfully", data);
