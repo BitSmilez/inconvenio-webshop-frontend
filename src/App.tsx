@@ -16,6 +16,8 @@ import ImprintContent from "./components/ImprintContent/ImprintContent";
 import LegalContent from "./components/LegalContent/LegalContent";
 import {options} from "./utils/constants/alertOptions";
 import CartPage from "./pages/CartPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 
 
 
@@ -43,6 +45,8 @@ const App = () => {
                             <Route path="/imprint" element={<StaticPage content={<ImprintContent/>}/>}/>
                             <Route path="/privacy" element={<StaticPage content={<LegalContent/>}/>}/>
                             <Route path ="/cart" element={<CartPage/>}/>
+                            <Route path="/login" element={<LoginPage />} />
+                            <Route path={"/register"} element={<RegisterPage />} />
                             {/*Fallback Route */}
                             <Route path="*" element={<ErrorPage/>}/>
                         </Routes>
