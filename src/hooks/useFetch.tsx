@@ -13,10 +13,10 @@ export const useFetch = (url: string) => {
         fetch(url, {signal: abortController.signal})
             .then(res => {
                 if (!res.ok) {
-                    throw("Error Fetching Data");
+                    throw Error("Error Fetching Data");
                 }
                 if(res.status === 404) {
-                    throw("No Data Found");
+                    throw Error("No Data Found");
                 }
                 return res.json()
             })
