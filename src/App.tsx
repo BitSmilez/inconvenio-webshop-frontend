@@ -18,7 +18,8 @@ import {options} from "./utils/constants/alertOptions";
 import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-
+import AccountPage from "./pages/AccountPage";
+import SuccessfulRegisterContent from "./components/SuccessfulRegisterContent/SuccessfulRegisterContent";
 
 
 const App = () => {
@@ -38,15 +39,17 @@ const App = () => {
                             <Route path="/products" element={<ProductDetailsPage/>}/>
                             <Route path="/products/search/:query" element={<SearchPage/>}/>
                             <Route path="/products/category/:category" element={<SearchPage/>}/>
+                            <Route path="/login" element={<LoginPage/>}/>
+                            <Route path="/register" element={<RegisterPage/>}/>
+                            <Route path="/cart" element={<CartPage/>}/>
+                            <Route path="/account" element={<AccountPage/>}/>
                             {/*Static Pages */}
                             <Route path="faq" element={<StaticPage content={<FAQContent/>}/>}/>
                             <Route path="/terms" element={<StaticPage content={<TermsContent/>}/>}/>
                             <Route path="/refunds" element={<StaticPage content={<RefundsContent/>}/>}/>
                             <Route path="/imprint" element={<StaticPage content={<ImprintContent/>}/>}/>
                             <Route path="/privacy" element={<StaticPage content={<LegalContent/>}/>}/>
-                            <Route path ="/cart" element={<CartPage/>}/>
-                            <Route path="/login" element={<LoginPage />} />
-                            <Route path={"/register"} element={<RegisterPage />} />
+                            <Route path="/register/success" element={<StaticPage content={<SuccessfulRegisterContent/>}/>}/>
                             {/*Fallback Route */}
                             <Route path="*" element={<ErrorPage/>}/>
                         </Routes>
