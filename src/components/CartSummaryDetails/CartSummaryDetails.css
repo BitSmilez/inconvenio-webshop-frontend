@@ -19,6 +19,11 @@
     margin-top: -15px;
 }
 
+.cart-summary-shipping-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
 .cart-summary-vat {
     font-size: 15px;
     font-style: oblique;

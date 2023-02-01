@@ -39,6 +39,9 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
     const setCartItemCount = (count: number) => {
         setCustomer({...customer, cartItemCount: count})
     }
+    const setLoggedIn = (isLoggedIn: boolean) => {
+        setCustomer({...customer, isLoggedIn: isLoggedIn})
+    }
 
 
     return (
@@ -46,7 +49,8 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
             customer,
             changeWishlistItemCount,
             changeCartItemCount,
-            setCartItemCount
+            setCartItemCount,
+            setLoggedIn
         }}>
             {children}
         </CustomerContext.Provider>
