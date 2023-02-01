@@ -2,7 +2,7 @@ import "./ProductItem.css";
 import DiscountBadge from "../DiscountBadge/DiscountBadge";
 import {useNavigate} from "react-router-dom";
 import {AddShoppingCart} from "@mui/icons-material";
-import {IconButton} from "@mui/material";
+import {IconButton, Tooltip} from "@mui/material";
 import {useAlert} from 'react-alert'
 import {CustomerContext} from "../../context/CustomerContext";
 import {useContext} from "react";
@@ -33,6 +33,7 @@ const ProductItem = ({product}: { product: any }) => {
     return (
         <div onClick={() => handleNavigateToDetails()} className="product-item">
             <div className="product-item-image">
+                <Tooltip title="Add to Cart">
                 <IconButton onClick={(e) => handleAddToCart(e)}
                             sx={{position: "absolute"}}
                             className={"pList-add-to-cart-icon"}
@@ -40,6 +41,7 @@ const ProductItem = ({product}: { product: any }) => {
                             aria-label="Add to cart">
                     <AddShoppingCart/>
                 </IconButton>
+                </Tooltip>
                 {product.salesPrice &&
                     <DiscountBadge price={product.price} discountedPrice={product.salesPrice}/>
                 }
