@@ -6,7 +6,6 @@ export const useFetch = (url: string) => {
     const [isLoading, setIsLoading] = useState(true);
     const [errMsg, setErrMsg] = useState(null);
 
-    // Fetch products from Test API
     useEffect(() => {
 
         const abortController = new AbortController();
@@ -14,7 +13,10 @@ export const useFetch = (url: string) => {
         fetch(url, {signal: abortController.signal})
             .then(res => {
                 if (!res.ok) {
-                    throw Error("Could not fetch products from API");
+                    throw("Error Fetching Data");
+                }
+                if(res.status === 404) {
+                    throw("No Data Found");
                 }
                 return res.json()
             })
@@ -24,9 +26,10 @@ export const useFetch = (url: string) => {
                 setIsLoading(false);
             })
             .catch(err => {
-                if (err.name === "AbortError") {
-                    console.log("Fetch aborted");
-                } else {
+                if (err.name === "No Data Found") {
+                    console.log("No Data Found");
+                }
+                else {
                     setIsLoading(false);
                     setErrMsg(err.message);
                 }
