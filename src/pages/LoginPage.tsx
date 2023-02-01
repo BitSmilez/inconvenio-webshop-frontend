@@ -1,9 +1,13 @@
-import LoginForm from "../components/LoginComponent/LoginForm";
+import LoginForm from "../components/LoginForm/LoginForm";
+import NavBar from "../components/NavBar/NavBar";
 
 const LoginPage = () => {
 
     return (
-        <LoginForm/>
+        <>
+            <NavBar/>
+            <LoginForm/>
+        </>
     );
 };
 
