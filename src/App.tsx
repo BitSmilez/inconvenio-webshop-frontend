@@ -18,7 +18,6 @@ import {options} from "./utils/constants/alertOptions";
 import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
-import AccountPage from "./pages/AccountPage";
 import SuccessfulRegisterContent from "./components/SuccessfulRegisterContent/SuccessfulRegisterContent";
 
 
@@ -42,7 +41,6 @@ const App = () => {
                             <Route path="/login" element={<LoginPage/>}/>
                             <Route path="/register" element={<RegisterPage/>}/>
                             <Route path="/cart" element={<CartPage/>}/>
-                            <Route path="/account" element={<AccountPage/>}/>
                             {/*Static Pages */}
                             <Route path="faq" element={<StaticPage content={<FAQContent/>}/>}/>
                             <Route path="/terms" element={<StaticPage content={<TermsContent/>}/>}/>
