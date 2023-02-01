@@ -1,24 +1,33 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import LandingPage from "./pages/LandingPage";
-import AdBanner from "./components/AdBanner/AdBanner";
-import SearchPage from "./pages/SearchPage";
-import ErrorPage from "./pages/ErrorPage";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
-import Footer from "./components/Footer/Footer";
 import {Provider as AlertProvider} from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
+
 import CustomerContextProvider from "./context/CustomerContext";
-import StaticPage from "./pages/StaticPage";
-import FAQContent from "./components/FAQContent/FAQContent";
-import TermsContent from "./components/TermsContent/TermsContent";
-import RefundsContent from "./components/RefundsContent/RefundsContent";
-import ImprintContent from "./components/ImprintContent/ImprintContent";
-import LegalContent from "./components/LegalContent/LegalContent";
+
 import {options} from "./utils/constants/alertOptions";
-import CartPage from "./pages/CartPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import SuccessfulRegisterContent from "./components/SuccessfulRegisterContent/SuccessfulRegisterContent";
+
+import AdBanner from "./components/AdBanner/AdBanner";
+import Footer from "./components/Footer/Footer";
+
+import {
+    FAQContent,
+    ImprintContent,
+    LegalContent,
+    RefundsContent,
+    SuccessfulRegisterContent,
+    TermsContent
+} from "./utils/staticContentImport";
+
+import {
+    LandingPage,
+    ProductDetailsPage,
+    SearchPage,
+    LoginPage,
+    RegisterPage,
+    CartPage,
+    StaticPage,
+    ErrorPage
+} from "./utils/pagesImport";
 
 
 const App = () => {
@@ -47,7 +56,8 @@ const App = () => {
                             <Route path="/refunds" element={<StaticPage content={<RefundsContent/>}/>}/>
                             <Route path="/imprint" element={<StaticPage content={<ImprintContent/>}/>}/>
                             <Route path="/privacy" element={<StaticPage content={<LegalContent/>}/>}/>
-                            <Route path="/register/success" element={<StaticPage content={<SuccessfulRegisterContent/>}/>}/>
+                            <Route path="/register-successful"
+                                   element={<StaticPage content={<SuccessfulRegisterContent/>}/>}/>
                             {/*Fallback Route */}
                             <Route path="*" element={<ErrorPage/>}/>
                         </Routes>
