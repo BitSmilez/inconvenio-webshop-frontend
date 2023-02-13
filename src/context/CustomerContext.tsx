@@ -14,7 +14,7 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
         wishlistItemCount: 0,
         cartItemCount: 0,
         isLoggedIn: localStorage.getItem("isLoggedIn") || "false",
-        customerID: "1"
+        customerID: localStorage.getItem("customerID") || "",
     });
 
     const changeWishlistItemCount = (count: number) => {
