@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {Box, IconButton, ListItemIcon, Menu, MenuItem, Tooltip} from "@mui/material";
 import {
     AccountCircleOutlined,
@@ -6,6 +6,7 @@ import {
     Settings,
     AddCircleOutline, Login
 } from "@mui/icons-material";
+import {CustomerContext} from "../../context/CustomerContext";
 
 
 const AccountMenu = ({customer}: { customer: any }) => {
@@ -18,6 +19,7 @@ const AccountMenu = ({customer}: { customer: any }) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const {setLoggedIn}: any = useContext(CustomerContext);
 
     return (
         <div>
@@ -69,24 +71,29 @@ const AccountMenu = ({customer}: { customer: any }) => {
                 transformOrigin={{horizontal: 'right', vertical: 'top'}}
                 anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
             >
-                {customer.isLoggedIn && (
-                    <>
-                        <MenuItem>
-                            <ListItemIcon onClick={() => window.location.href = "/account"}>
+                {customer.isLoggedIn === "true" && (
+                    <div>
+                        <MenuItem onClick={() => console.log(localStorage.getItem("accessToken"))}>
+                            <ListItemIcon>
                                 <Settings fontSize="small"/>
                             </ListItemIcon>
                             Account
                         </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon onClick={() => window.location.href = "/logout"}>
+                        <MenuItem onClick={() => {
+                            setLoggedIn(false)
+                            localStorage.removeItem("accessToken")
+                            localStorage.removeItem("customerID")
+                            window.location.reload();
+                        }}>
+                            <ListItemIcon>
                                 <Logout fontSize="small"/>
                             </ListItemIcon>
                             Logout
                         </MenuItem>
-                    </>
+                    </div>
                 )}
-                {!customer.isLoggedIn && (
-                    <>
+                {customer.isLoggedIn !== "true" && (
+                    <div>
                         <MenuItem onClick={() => window.location.href = "/login"}>
                             <ListItemIcon>
                                 <Login fontSize="small"/>
@@ -99,7 +106,7 @@ const AccountMenu = ({customer}: { customer: any }) => {
                             </ListItemIcon>
                             Create Account
                         </MenuItem>
-                    </>
+                    </div>
                 )}
             </Menu>
         </div>
