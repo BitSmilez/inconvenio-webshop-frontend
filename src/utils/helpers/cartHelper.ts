@@ -60,5 +60,25 @@ const updateCart = async (productID: string, quantity: number, cartID: string, a
         });
 }
 
+const getCartItemCount = async (userID: string, setCount: any) => {
+    fetch("http://localhost:8081/cart/" + userID,
+        {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    )
+        .then((res) => {
+            if (res.status === 200) {
+                return res.json();
+            }
+        }).then((data) => {
+        if (data !== undefined) {
+            setCount(data.quantity);
+        }
+    });
+}
 
-export {addToCart, removeFromCart, updateCart};
+
+export {addToCart, removeFromCart, updateCart, getCartItemCount};
