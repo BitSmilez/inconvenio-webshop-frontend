@@ -6,3 +6,7 @@
     display: inline-block;
     padding: 5px;
 }
+
+.link-button-link:hover, .link-button-li-elem:hover {
+    background: #000000;
+}
