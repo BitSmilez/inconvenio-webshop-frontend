@@ -14,7 +14,7 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
         wishlistItemCount: 0,
         cartItemCount: 0,
         isLoggedIn: localStorage.getItem("isLoggedIn") || "false",
-        customerID: localStorage.getItem("customerID") || "",
+        customerID: localStorage.getItem("customerID") || ""
     });
 
     const changeWishlistItemCount = (count: number) => {
@@ -38,16 +38,26 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
     const updateUserID = (id: string) => {
         localStorage.setItem("customerID", id);
     }
+    const getCustomerInfo = () => {
+        const token: any = jwt(localStorage.getItem("accessToken") || "");
+        return {
+            firstname: token.given_name,
+            lastname: token.family_name,
+            email: token.email,
+            verified: token.email_verified,
+        };
+    }
 
-    const updateCartCount = useCallback(async () => {
+    const updateCartCount = async () => {
         if (customer.isLoggedIn === "true" && customer.customerID !== "") {
             await getCartItemCount(customer.customerID, changeCartItemCount);
         }
-    }, [customer.isLoggedIn, customer.customerID, changeCartItemCount])
+    }
+
 
     useEffect(() => {
-        updateCartCount()
-    }, [updateCartCount])
+        void updateCartCount()
+    })
 
 
     return (
@@ -57,7 +67,8 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
             changeCartItemCount,
             setCartItemCount,
             setLoggedIn,
-            setToken
+            setToken,
+            getCustomerInfo
         }}>
             {children}
         </CustomerContext.Provider>
