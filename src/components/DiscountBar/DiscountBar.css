@@ -26,5 +26,6 @@
 
 .discount-bar-button:hover {
     cursor: pointer;
+    background-color: #000000;
 }
 

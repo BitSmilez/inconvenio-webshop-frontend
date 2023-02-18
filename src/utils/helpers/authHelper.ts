@@ -1,4 +1,4 @@
-const register = async (body: any, alert: any, setLoggedIn: any) => {
+const register = async (body: any, alert: any, setIsSubmitting: any) => {
 
     fetch("http://localhost:8089/user/create", {
         method: "POST",
@@ -14,16 +14,48 @@ const register = async (body: any, alert: any, setLoggedIn: any) => {
                 }
             } else {
                 alert.show("Registration sucessful!");
-                setLoggedIn(true);
                 return response;
             }
+            setIsSubmitting(false)
         })
         .then((response) => {
             if (response) {
-                window.location.href = '/register/success';
+                window.location.href = '/register-successful';
+            }
+        })
+}
+
+const login = async (body: any, alert: any, setLoggedIn: any, setToken: any, setIsSubmitting: any) => {
+
+    fetch("http://localhost:8089/user/login", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    })
+        .then((response) => {
+            if (!response.ok) {
+                    if (response.status === 403) {
+                        alert.show("Invalid credentials!", {type: "info", timeout: 2000});
+                    } else {
+                        alert.show("Error logging in!", {type: "error", timeout: 2000});
+                    }
+                } else {
+                    return response;
+                }
+            setIsSubmitting(false)
+            }
+        )
+        .then((response) => {
+            if (response) {
+                response.json().then((data) => {
+                        setToken(data.access_token);
+                        setLoggedIn(true);
+                        window.location.href = '/';
+                    }
+                )
             }
         })
 }
 
 
-export {register}
+export {register, login};

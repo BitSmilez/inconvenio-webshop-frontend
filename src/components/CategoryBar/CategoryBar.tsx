@@ -14,6 +14,7 @@ const CategoryBar = () => {
                 <li className={"category-bar-label"} onClick={() => handleCategoryClick("cutlery")}>CUTLERY</li>
                 <li className={"category-bar-label"} onClick={() => handleCategoryClick("clothes")}>CLOTHES</li>
                 <li className={"category-bar-label"} onClick={() => handleCategoryClick("tableware")}>TABLEWARE</li>
+                <li className={"category-bar-label"} onClick={() => handleCategoryClick("gadgets")}>GADGETS</li>
                 <li className={"category-bar-sale-label"} onClick={() => handleCategoryClick("sale")}>%SALE</li>
             </ul>
         </div>

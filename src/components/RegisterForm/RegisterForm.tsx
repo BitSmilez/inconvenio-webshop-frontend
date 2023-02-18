@@ -1,28 +1,37 @@
 import "./RegisterForm.css";
-import {useContext, useState} from 'react';
+import {useState} from 'react';
 import LinkButton from "../LinkButton/LinkButton";
 import {useAlert} from "react-alert";
 import {register} from "../../utils/helpers/authHelper"
-import {CustomerContext} from "../../context/CustomerContext";
 
 function RegisterForm() {
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
-    const alert = useAlert()
-    const {setLoggedIn}: any = useContext(CustomerContext);
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [registerForm, setRegisterForm] = useState({
+        firstname: "",
+        lastname: "",
+        email: "",
+        password: "",
+    });
+
+    const handleChange = (event: any) => {
+        setRegisterForm({...registerForm, [event.target.name]: event.target.value});
+    }
+
+
+    const alert = useAlert();
 
     const handleSubmit = async (event:any) => {
+        setIsSubmitting(true);
         event.preventDefault();
         const body = {
-            username: email,
-            password: password,
-            email: email,
-            firstname: firstname,
-            lastname: lastname
+            username: registerForm.email,
+            password: registerForm.password,
+            email: registerForm.email,
+            firstname: registerForm.firstname,
+            lastname: registerForm.lastname
         };
-        await register(body, alert, setLoggedIn)
+        await register(body, alert, setIsSubmitting);
     };
 
 
@@ -39,8 +48,8 @@ function RegisterForm() {
                             <input
                                 type="text"
                                 required
-                                value={firstname}
-                                onChange={(e) => setFirstname(e.target.value)}
+                                value={registerForm.firstname}
+                                onChange={(e) => handleChange(e)}
                                 name="firstname"
                                 placeholder="Enter Firstname..."/>
                         </label>
@@ -50,8 +59,8 @@ function RegisterForm() {
                             <input
                                 type="text"
                                 required
-                                value={lastname}
-                                onChange={(e) => setLastname(e.target.value)}
+                                value={registerForm.lastname}
+                                onChange={(e) => handleChange(e)}
                                 name="lastname"
                                 placeholder="Enter Lastname..."/>
                         </label>
@@ -61,8 +70,8 @@ function RegisterForm() {
                             <input
                                 type="email"
                                 required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                value={registerForm.email}
+                                onChange={(e) => handleChange(e)}
                                 name="email"
                                 placeholder="Enter E-Mail..."/>
                         </label>
@@ -72,13 +81,13 @@ function RegisterForm() {
                             <input
                                 type="password"
                                 required
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
+                                value={registerForm.password}
+                                onChange={(e) => handleChange(e)}
                                 name="password"
                                 placeholder="Enter Password..."/>
                         </label>
                     </div>
-                    <button type={"submit"} className="register-button">REGISTER NEW ACCOUNT</button>
+                    <button type={"submit"} className="register-button">{`${isSubmitting ? "REGISTERING..." : "REGISTER NEW ACCOUNT"}`}</button>
                     <p className={"register-link"}>Already a Member? <a href={"/login"}>Login here</a>
                     </p>
                 </form>

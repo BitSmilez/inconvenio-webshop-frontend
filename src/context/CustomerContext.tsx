@@ -1,5 +1,7 @@
-import React, {createContext, useEffect, useState} from "react";
-import {useFetch} from "../hooks/useFetch";
+import React, {createContext, useCallback, useEffect, useState} from "react";
+import jwt from 'jwt-decode';
+import {getCartItemCount} from "../utils/helpers/cartHelper";
+
 
 export const CustomerContext = createContext({});
 
@@ -7,41 +9,55 @@ type CustomerContextProviderProps = {
     children: React.ReactNode;
 }
 
-
 const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
-    // TOOD: Use customer id for fetching as soon as we have a login
     const [customer, setCustomer] = useState({
         wishlistItemCount: 0,
         cartItemCount: 0,
-        isLoggedIn: false,
-        customerID: 1,
+        isLoggedIn: localStorage.getItem("isLoggedIn") || "false",
+        customerID: localStorage.getItem("customerID") || ""
     });
-    const {fetchedData: cartCount, isLoading}: any = useFetch("http://localhost:8081/cart/" + customer.customerID)
-
-
-    useEffect(() => {
-        if(!isLoading) {
-            let cartItemCount = 0;
-            cartCount.items?.forEach((item: any) => {
-                cartItemCount += item.quantity;
-            })
-            setCustomer(customer => ({...customer, cartItemCount: cartItemCount}));
-        }
-    }, [cartCount.items, isLoading])
 
     const changeWishlistItemCount = (count: number) => {
         setCustomer({...customer, wishlistItemCount: customer.wishlistItemCount + count})
     }
 
-    const changeCartItemCount = (count: number) => {
-        setCustomer({...customer, cartItemCount: customer.cartItemCount + count})
-    }
+    const changeCartItemCount = useCallback((count: any) => {
+        setCustomer({...customer, cartItemCount: count})
+    }, [customer]);
     const setCartItemCount = (count: number) => {
         setCustomer({...customer, cartItemCount: count})
     }
     const setLoggedIn = (isLoggedIn: boolean) => {
-        setCustomer({...customer, isLoggedIn: isLoggedIn})
+        localStorage.setItem("isLoggedIn", isLoggedIn.toString());
     }
+    const setToken = (token: string) => {
+        localStorage.setItem("accessToken", token);
+        const decodedToken: any = jwt(token);
+        updateUserID(decodedToken.sub);
+    }
+    const updateUserID = (id: string) => {
+        localStorage.setItem("customerID", id);
+    }
+    const getCustomerInfo = () => {
+        const token: any = jwt(localStorage.getItem("accessToken") || "");
+        return {
+            firstname: token.given_name,
+            lastname: token.family_name,
+            email: token.email,
+            verified: token.email_verified,
+        };
+    }
+
+    const updateCartCount = async () => {
+        if (customer.isLoggedIn === "true" && customer.customerID !== "") {
+            await getCartItemCount(customer.customerID, changeCartItemCount);
+        }
+    }
+
+
+    useEffect(() => {
+        void updateCartCount()
+    })
 
 
     return (
@@ -50,7 +66,9 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
             changeWishlistItemCount,
             changeCartItemCount,
             setCartItemCount,
-            setLoggedIn
+            setLoggedIn,
+            setToken,
+            getCustomerInfo
         }}>
             {children}
         </CustomerContext.Provider>

@@ -25,7 +25,7 @@ const CustomerMenu = () => {
                 </Badge>
             </IconButton>
             </Tooltip>
-            <AccountMenu customer={customer}/>
+            <AccountMenu/>
         </div>
     )
 }
