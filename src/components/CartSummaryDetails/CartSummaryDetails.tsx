@@ -5,7 +5,7 @@ import DiscountBar from "../DiscountBar/DiscountBar";
 import FreeShippingRemainder from "../FreeShippingRemainder/FreeShippingRemainder";
 
 
-const CartSummaryDetails = ({cart}: { cart: any }) => {
+const CartSummaryDetails = ({cart, discountBar}: { cart: any, discountBar: any }) => {
 
     const freeShipping = 100;
     const eligible = cart.subTotal >= freeShipping;
@@ -22,7 +22,7 @@ const CartSummaryDetails = ({cart}: { cart: any }) => {
                 <CustomDivider color={"#000000"}/>
                 <p className={"cart-summary-total"}> Total: ${cart.total?.toFixed(2)} </p>
                 <p className={"cart-summary-vat"}> including {cart.totalVat?.toFixed(2)}€ VAT ({cart.taxRate}%) </p>
-                <DiscountBar/>
+                {discountBar && <DiscountBar/>}
                 <CustomDivider color={"#000000"}/>
             </div>
         )
