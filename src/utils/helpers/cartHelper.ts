@@ -1,4 +1,4 @@
-const addToCart = async (productID: string, quantity: number, cartID: string, changeCartItemCount: any, alert: any) => {
+const addToCart = async (productID: string, quantity: number, cartID: string, setCustomer: any, alert: any) => {
     fetch("http://localhost:8089/user/add-to-cart", {
         method: "POST",
         headers: {
@@ -13,7 +13,7 @@ const addToCart = async (productID: string, quantity: number, cartID: string, ch
     })
         .then((res) => {
             if (res.status === 200) {
-                changeCartItemCount(quantity);
+                setCustomer((prevState: any) => ({...prevState, cartItemCount: prevState.cartItemCount + quantity}));
                 alert.show("Added to cart.");
             } else if (res.status === 403) {
                 alert.show("You are not logged in.", {type: "info", timeout: 2000});
@@ -71,7 +71,7 @@ const updateCart = async (productID: string, quantity: number, cartID: string, a
         });
 }
 
-const getCartItemCount = async (userID: string, setCount: any) => {
+const getCartItemCount = async (userID: string, setCustomer: any) => {
     fetch("http://localhost:8081/cart/" + userID,
         {
             method: "GET",
@@ -86,7 +86,7 @@ const getCartItemCount = async (userID: string, setCount: any) => {
             }
         }).then((data) => {
         if (data !== undefined) {
-            setCount(data.quantity);
+            setCustomer((prevState: any) => ({...prevState, cartItemCount: data.quantity}));
         }
     });
 }
