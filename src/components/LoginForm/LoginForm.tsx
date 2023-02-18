@@ -10,6 +10,7 @@ const LoginForm = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const {setLoggedIn, setToken}: any = useContext(CustomerContext);
     const alert = useAlert();
@@ -17,12 +18,13 @@ const LoginForm = () => {
 
 
     const handleSubmit = async (event: any) => {
+        setIsSubmitting(true);
         event.preventDefault();
         const body = {
             username: email,
             password: password
         }
-        await login(body, alert, setLoggedIn, setToken);
+        await login(body, alert, setLoggedIn, setToken, setIsSubmitting);
     }
 
     return (
@@ -54,7 +56,7 @@ const LoginForm = () => {
                                 placeholder="Enter your Password..."/>
                         </label>
                     </div>
-                    <button type={"submit"} className="login-button">LOGIN</button>
+                    <button type={"submit"} className="login-button">{`${isSubmitting ? "LOGGING IN..." : "LOGIN"}`}</button>
                     <p className={"register-link"}>Dont have an Account yet? <a href={"/register"}>Register here</a>
                     </p>
                 </form>

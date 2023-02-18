@@ -6,6 +6,7 @@ import {register} from "../../utils/helpers/authHelper"
 
 function RegisterForm() {
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [registerForm, setRegisterForm] = useState({
         firstname: "",
         lastname: "",
@@ -21,6 +22,7 @@ function RegisterForm() {
     const alert = useAlert();
 
     const handleSubmit = async (event:any) => {
+        setIsSubmitting(true);
         event.preventDefault();
         const body = {
             username: registerForm.email,
@@ -29,7 +31,7 @@ function RegisterForm() {
             firstname: registerForm.firstname,
             lastname: registerForm.lastname
         };
-        await register(body, alert)
+        await register(body, alert, setIsSubmitting);
     };
 
 
@@ -85,7 +87,7 @@ function RegisterForm() {
                                 placeholder="Enter Password..."/>
                         </label>
                     </div>
-                    <button type={"submit"} className="register-button">REGISTER NEW ACCOUNT</button>
+                    <button type={"submit"} className="register-button">{`${isSubmitting ? "REGISTERING..." : "REGISTER NEW ACCOUNT"}`}</button>
                     <p className={"register-link"}>Already a Member? <a href={"/login"}>Login here</a>
                     </p>
                 </form>
