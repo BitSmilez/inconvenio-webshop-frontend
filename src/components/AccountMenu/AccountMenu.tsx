@@ -9,7 +9,7 @@ import {
 import {CustomerContext} from "../../context/CustomerContext";
 
 
-const AccountMenu = ({customer}: { customer: any }) => {
+const AccountMenu = () => {
 
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -19,7 +19,7 @@ const AccountMenu = ({customer}: { customer: any }) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const {setLoggedIn}: any = useContext(CustomerContext);
+    const {setLoggedIn, customer}: any = useContext(CustomerContext);
 
     return (
         <div>
@@ -73,7 +73,10 @@ const AccountMenu = ({customer}: { customer: any }) => {
             >
                 {customer.isLoggedIn === "true" && (
                     <div>
-                        <MenuItem onClick={() => console.log(localStorage.getItem("accessToken"))}>
+
+                        <MenuItem onClick={() => {
+                            console.log(localStorage.getItem("accessToken"))
+                        }}>
                             <ListItemIcon>
                                 <Settings fontSize="small"/>
                             </ListItemIcon>
