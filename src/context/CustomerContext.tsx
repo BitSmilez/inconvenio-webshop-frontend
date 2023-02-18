@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useEffect, useState} from "react";
+import React, {createContext, useEffect, useState} from "react";
 import jwt from 'jwt-decode';
 import {getCartItemCount} from "../utils/helpers/cartHelper";
 
@@ -21,23 +21,25 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
         setCustomer({...customer, wishlistItemCount: customer.wishlistItemCount + count})
     }
 
-    const changeCartItemCount = useCallback((count: any) => {
-        setCustomer({...customer, cartItemCount: count})
-    }, [customer]);
+
     const setCartItemCount = (count: number) => {
         setCustomer({...customer, cartItemCount: count})
     }
+
     const setLoggedIn = (isLoggedIn: boolean) => {
         localStorage.setItem("isLoggedIn", isLoggedIn.toString());
     }
+
     const setToken = (token: string) => {
         localStorage.setItem("accessToken", token);
         const decodedToken: any = jwt(token);
         updateUserID(decodedToken.sub);
     }
+
     const updateUserID = (id: string) => {
         localStorage.setItem("customerID", id);
     }
+
     const getCustomerInfo = () => {
         const token: any = jwt(localStorage.getItem("accessToken") || "");
         return {
@@ -50,21 +52,21 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
 
     const updateCartCount = async () => {
         if (customer.isLoggedIn === "true" && customer.customerID !== "") {
-            await getCartItemCount(customer.customerID, changeCartItemCount);
+            await getCartItemCount(customer.customerID, setCustomer);
         }
     }
 
 
     useEffect(() => {
         void updateCartCount()
-    })
+    }, [customer.cartItemCount])
 
 
     return (
         <CustomerContext.Provider value={{
             customer,
+            setCustomer,
             changeWishlistItemCount,
-            changeCartItemCount,
             setCartItemCount,
             setLoggedIn,
             setToken,

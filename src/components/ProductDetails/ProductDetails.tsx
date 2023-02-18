@@ -15,7 +15,7 @@ const ProductDetails = ({product}: { product: any }) => {
 
 
     const [selectedQuantity, setSelectedQuantity] = useState(1);
-    const {changeCartItemCount, customer}: any = useContext(CustomerContext);
+    const {customer, setCustomer}: any = useContext(CustomerContext);
     const alert = useAlert()
 
     const handleQuantityChange = (quantity: number) => {
@@ -24,7 +24,7 @@ const ProductDetails = ({product}: { product: any }) => {
         }
     }
     const handleAddToCart = async () => {
-        await addToCart(product.id.toString(), selectedQuantity, customer.customerID, changeCartItemCount, alert);
+        await addToCart(product.id.toString(), selectedQuantity, customer.customerID, setCustomer, alert);
         selectedQuantity > 1 && setSelectedQuantity(1);
     }
 

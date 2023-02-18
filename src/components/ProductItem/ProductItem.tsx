@@ -15,7 +15,7 @@ const ProductItem = ({product}: { product: any }) => {
 
     const navigate = useNavigate();
     const alert = useAlert()
-    const {changeCartItemCount, customer}: any = useContext(CustomerContext);
+    const {customer, setCustomer}: any = useContext(CustomerContext);
 
 
     const handleNavigateToDetails = () => {
@@ -26,7 +26,7 @@ const ProductItem = ({product}: { product: any }) => {
     }
     const handleAddToCart = async (e: any) => {
         e.stopPropagation();
-        await addToCart(product.id.toString(), 1, customer.customerID, changeCartItemCount, alert);
+        await addToCart(product.id.toString(), 1, customer.customerID, setCustomer, alert);
     }
 
 
