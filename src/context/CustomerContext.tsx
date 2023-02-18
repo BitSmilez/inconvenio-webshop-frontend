@@ -50,16 +50,14 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
         };
     }
 
-    const updateCartCount = async () => {
-        if (customer.isLoggedIn === "true" && customer.customerID !== "") {
-            await getCartItemCount(customer.customerID, setCustomer);
-        }
-    }
-
-
     useEffect(() => {
+        const updateCartCount = async () => {
+            if (customer.isLoggedIn === "true" && customer.customerID !== "") {
+                await getCartItemCount(customer.customerID, setCustomer);
+            }
+        }
         void updateCartCount()
-    }, [customer.cartItemCount])
+    }, [customer.cartItemCount, customer.isLoggedIn, customer.customerID])
 
 
     return (
