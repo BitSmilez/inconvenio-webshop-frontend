@@ -1,4 +1,4 @@
-const register = async (body: any, alert: any) => {
+const register = async (body: any, alert: any, setIsSubmitting: any) => {
 
     fetch("http://localhost:8089/user/create", {
         method: "POST",
@@ -16,6 +16,7 @@ const register = async (body: any, alert: any) => {
                 alert.show("Registration sucessful!");
                 return response;
             }
+            setIsSubmitting(false)
         })
         .then((response) => {
             if (response) {
@@ -24,7 +25,7 @@ const register = async (body: any, alert: any) => {
         })
 }
 
-const login = async (body: any, alert: any, setLoggedIn: any, setToken: any) => {
+const login = async (body: any, alert: any, setLoggedIn: any, setToken: any, setIsSubmitting: any) => {
 
     fetch("http://localhost:8089/user/login", {
         method: "POST",
@@ -32,7 +33,7 @@ const login = async (body: any, alert: any, setLoggedIn: any, setToken: any) => 
         body: JSON.stringify(body)
     })
         .then((response) => {
-                if (!response.ok) {
+            if (!response.ok) {
                     if (response.status === 403) {
                         alert.show("Invalid credentials!", {type: "info", timeout: 2000});
                     } else {
@@ -41,6 +42,7 @@ const login = async (body: any, alert: any, setLoggedIn: any, setToken: any) => 
                 } else {
                     return response;
                 }
+            setIsSubmitting(false)
             }
         )
         .then((response) => {
