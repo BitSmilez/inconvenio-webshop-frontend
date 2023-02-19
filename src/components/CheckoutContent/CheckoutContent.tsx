@@ -42,7 +42,10 @@ const CheckoutContent = () => {
         email: "test@test.de",
         phone: "24244",
         orderTotal: cart?.total ?? 0,
-        orderItems: cart?.items ?? [],
+        orderItems: cart?.items?.map((item: any) => ({
+            productID: item.productID,
+            quantity: item.quantity
+        })) ?? [],
     });
 
     useEffect(() => {
@@ -50,7 +53,10 @@ const CheckoutContent = () => {
             setCheckout((prevCheckout) => ({
                 ...prevCheckout,
                 orderTotal: cart?.total ?? 0,
-                orderItems: cart?.items ?? [],
+                orderItems: cart?.items.map((item: any) => ({
+                    productID: item.productID,
+                    quantity: item.quantity
+                })) ?? [],
             }));
         }
     }, [loading, cart]);
