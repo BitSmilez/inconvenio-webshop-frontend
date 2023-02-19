@@ -6,4 +6,5 @@ export {default as CartPage} from '../pages/CartPage';
 export {default as StaticPage} from '../pages/StaticPage';
 export {default as SearchPage} from '../pages/SearchPage';
 export {default as ErrorPage} from '../pages/ErrorPage';
+export {default as CheckoutPage} from '../pages/CheckoutPage';
 
