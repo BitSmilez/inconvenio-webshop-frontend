@@ -9,6 +9,9 @@ import {createOrder} from "../../utils/helpers/checkoutHelper";
 import {useAlert} from 'react-alert'
 import CheckoutForm from "./CheckoutForm";
 import CheckoutButton from "./CheckoutButton";
+import DiscountBar from "../DiscountBar/DiscountBar";
+import CartSummaryDetails from "../CartSummaryDetails/CartSummaryDetails";
+import CircularLoader from "../CircularLoader/CircularLoader";
 
 
 const CheckoutContent = () => {
@@ -71,6 +74,11 @@ const CheckoutContent = () => {
                     <CheckoutForm checkout={checkout} setCheckout={setCheckout} handleSubmit={handleSubmit}/>
                 </div>
                 <div className={"checkout-page-content-right"}>
+                    <h1 className={"cart-summary-headline"}>REVIEW YOUR ORDER</h1>
+                    {isLoading
+                        ? <CircularLoader/>
+                        : <CartSummaryDetails cart={cart} discountBar={<DiscountBar/>}/>
+                    }
                 </div>
             </div>
             <CheckoutButton validator={isCheckoutValid}/>
