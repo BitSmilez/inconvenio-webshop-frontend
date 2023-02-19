@@ -31,7 +31,7 @@ const CheckoutContent = () => {
 
     const [checkout, setCheckout] = useState({
         userID: customer.customerID.toString(),
-        address: "test",
+        address: "",
         city: "test",
         zip: "121212",
         country: "test",
@@ -42,10 +42,10 @@ const CheckoutContent = () => {
         email: "test@test.de",
         phone: "24244",
         orderTotal: cart?.total ?? 0,
-        orderItems: cart?.items?.map((item: any) => ({
-            productID: item.productID,
-            quantity: item.quantity
-        })) ?? [],
+        orderItems: cart?.items?.reduce((map: any, item: any) => {
+            map[item.productID] = item.quantity;
+            return map;
+        }, {}) ?? {},
     });
 
     useEffect(() => {
@@ -53,10 +53,10 @@ const CheckoutContent = () => {
             setCheckout((prevCheckout) => ({
                 ...prevCheckout,
                 orderTotal: cart?.total ?? 0,
-                orderItems: cart?.items.map((item: any) => ({
-                    productID: item.productID,
-                    quantity: item.quantity
-                })) ?? [],
+                orderItems: cart?.items?.reduce((map: any, item: any) => {
+                    map[item.productID] = item.quantity;
+                    return map;
+                }, {}) ?? {},
             }));
         }
     }, [loading, cart]);
