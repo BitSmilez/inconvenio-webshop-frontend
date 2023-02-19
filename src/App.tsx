@@ -26,8 +26,11 @@ import {
     RegisterPage,
     CartPage,
     StaticPage,
-    ErrorPage
+    ErrorPage,
+    CheckoutPage,
 } from "./utils/pagesImport";
+
+
 
 
 const App = () => {
@@ -50,6 +53,7 @@ const App = () => {
                             <Route path="/login" element={<LoginPage/>}/>
                             <Route path="/register" element={<RegisterPage/>}/>
                             <Route path="/cart" element={<CartPage/>}/>
+                            <Route path="/checkout" element={<CheckoutPage/>}/>
                             {/*Static Pages */}
                             <Route path="faq" element={<StaticPage content={<FAQContent/>}/>}/>
                             <Route path="/terms" element={<StaticPage content={<TermsContent/>}/>}/>
