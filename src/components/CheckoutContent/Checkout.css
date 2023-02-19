@@ -1,0 +1,103 @@
+.checkout-wrapper {
+    min-height: 100vh;
+}
+
+.checkout-page-headline {
+    display: flex;
+    justify-content: center;
+}
+
+.checkout-page-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.checkout-page-content-left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Saira', sans-serif;
+    font-size: 18px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    height: 300px;
+    gap: 5px;
+}
+
+.checkout-page-content-right {
+    flex: 1;
+    font-family: 'Saira', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    height: 460px;
+}
+
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.input-fields-checkout {
+    width: 25%;
+    margin-bottom: 15px;
+}
+
+.checkout-selector {
+    font-family: 'Saira', sans-serif;
+    font-size: 18px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+}
+
+.checkout-selector p {
+    margin-left: 25px;
+}
+
+.checkout-payment-icons {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.checkout-button {
+    font-family: 'Saira', sans-serif;
+    width: 25%;
+    height: 100%;
+    background-color: #252525;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    outline: none;
+}
+
+.checkout-button:hover {
+    cursor: pointer;
+    background-color: #000000;
+}
+
+.checkout-button:disabled {
+    background-color: darkgrey;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+.checkout-button-row {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
