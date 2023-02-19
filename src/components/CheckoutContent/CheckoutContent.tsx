@@ -12,6 +12,7 @@ import CheckoutButton from "./CheckoutButton";
 import DiscountBar from "../DiscountBar/DiscountBar";
 import CartSummaryDetails from "../CartSummaryDetails/CartSummaryDetails";
 import CircularLoader from "../CircularLoader/CircularLoader";
+import PaymentSelector from "./PaymentSelector";
 
 
 const CheckoutContent = () => {
@@ -72,6 +73,7 @@ const CheckoutContent = () => {
             <div className={"checkout-page-content"}>
                 <div className={"checkout-page-content-left"}>
                     <CheckoutForm checkout={checkout} setCheckout={setCheckout} handleSubmit={handleSubmit}/>
+                    <PaymentSelector setCheckout={setCheckout} checkout={checkout}/>
                 </div>
                 <div className={"checkout-page-content-right"}>
                     <h1 className={"cart-summary-headline"}>REVIEW YOUR ORDER</h1>
