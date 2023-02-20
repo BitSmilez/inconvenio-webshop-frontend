@@ -14,14 +14,13 @@ import CartSummaryDetails from "../CartSummaryDetails/CartSummaryDetails";
 import CircularLoader from "../CircularLoader/CircularLoader";
 import PaymentSelector from "./PaymentSelector";
 
-
 const CheckoutContent = () => {
 
-    const {customer}: any = useContext(CustomerContext);
+    const {customer, getCustomerInfo}: any = useContext(CustomerContext);
+    const customerDetails = getCustomerInfo();
     const [isLoading, setIsLoading] = useState(true);
     const {fetchedData: cart, isLoading: loading}: any = useFetch('http://localhost:8081/cart/' + customer.customerID);
     const alert = useAlert()
-
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
@@ -32,15 +31,15 @@ const CheckoutContent = () => {
     const [checkout, setCheckout] = useState({
         userID: customer.customerID.toString(),
         address: "",
-        city: "test",
-        zip: "121212",
-        country: "test",
+        city: "",
+        zip: "",
+        country: "",
         paymentMethod: "",
         shippingMethod: "hermes",
-        firstName: "test",
-        lastName: "test",
-        email: "test@test.de",
-        phone: "24244",
+        firstName: customerDetails.firstname,
+        lastName: customerDetails.lastname,
+        email: customerDetails.email,
+        phone: "",
         orderTotal: cart?.total ?? 0,
         orderItems: cart?.items?.reduce((map: any, item: any) => {
             map[item.productID] = item.quantity;
@@ -61,15 +60,11 @@ const CheckoutContent = () => {
         }
     }, [loading, cart]);
 
-    const isCheckoutValid = () => {
-        return Object.values(checkout).every((value) => value !== "");
-    }
-
 
     return (
         <div className="checkout-wrapper">
             <AccessChecker isLoading={isLoading} setIsLoading={setIsLoading}
-                           condition={(customer.isLoggedIn === "true")} nav={"/"}/>
+                           condition={(cart?.total > 0)} nav={"/"}/>
             <div className={"checkout-page-headline"}>
                 <GenericPageHeadline text={"CHECKOUT"}/>
             </div>
@@ -89,11 +84,10 @@ const CheckoutContent = () => {
                     }
                 </div>
             </div>
-            <CheckoutButton validator={isCheckoutValid}/>
+            <CheckoutButton checkout={checkout}/>
         </div>
     );
 
 }
-
 
 export default CheckoutContent;
