@@ -1,5 +1,4 @@
 import "./Checkout.css";
-import React from "react";
 
 const CheckoutForm = ({checkout, setCheckout, handleSubmit}: { checkout: any, setCheckout: any, handleSubmit: any }) => {
 

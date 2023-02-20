@@ -28,21 +28,17 @@ import {
     StaticPage,
     ErrorPage,
     CheckoutPage,
+    ConfirmationPage
 } from "./utils/pagesImport";
 
 
-
-
 const App = () => {
-
-    // TODO: Dynamic Messages from API
-    const bannerMessage = "FREE SHIPPING ON ORDERS OVER $100";
 
     return (
         <>
             <CustomerContextProvider>
                 <AlertProvider template={AlertTemplate} {...options}>
-                    <AdBanner bannerMessage={bannerMessage}/>
+                    <AdBanner bannerMessage={""}/>
                     {/* Routes */}
                     <Router>
                         <Routes>
@@ -54,6 +50,7 @@ const App = () => {
                             <Route path="/register" element={<RegisterPage/>}/>
                             <Route path="/cart" element={<CartPage/>}/>
                             <Route path="/checkout" element={<CheckoutPage/>}/>
+                            <Route path="/order-confirmation" element={<ConfirmationPage/>}/>
                             {/*Static Pages */}
                             <Route path="faq" element={<StaticPage content={<FAQContent/>}/>}/>
                             <Route path="/terms" element={<StaticPage content={<TermsContent/>}/>}/>
