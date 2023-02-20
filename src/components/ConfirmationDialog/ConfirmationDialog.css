@@ -1,0 +1,23 @@
+.order-confirm-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Saira', sans-serif;
+}
+
+.order-confirm-content h1 {
+    margin-top: -160px;
+}
+
+.order-confirm-content li  {
+    margin: 10px;
+}
+
+.order-number {
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+    margin-top: -100px;
+}
