@@ -13,8 +13,8 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
     const [customer, setCustomer] = useState({
         wishlistItemCount: 0,
         cartItemCount: 0,
-        isLoggedIn: localStorage.getItem("isLoggedIn") || "false",
-        customerID: localStorage.getItem("customerID") || ""
+        isLoggedIn: sessionStorage.getItem("isLoggedIn") || "false",
+        customerID: sessionStorage.getItem("customerID") || ""
     });
 
     const changeWishlistItemCount = (count: number) => {
@@ -27,21 +27,21 @@ const CustomerContextProvider = ({children}: CustomerContextProviderProps) => {
     }
 
     const setLoggedIn = (isLoggedIn: boolean) => {
-        localStorage.setItem("isLoggedIn", isLoggedIn.toString());
+        sessionStorage.setItem("isLoggedIn", isLoggedIn.toString());
     }
 
     const setToken = (token: string) => {
-        localStorage.setItem("accessToken", token);
+        sessionStorage.setItem("accessToken", token);
         const decodedToken: any = jwt(token);
         updateUserID(decodedToken.sub);
     }
 
     const updateUserID = (id: string) => {
-        localStorage.setItem("customerID", id);
+        sessionStorage.setItem("customerID", id);
     }
 
     const getCustomerInfo = () => {
-        const token: any = jwt(localStorage.getItem("accessToken") || "");
+        const token: any = jwt(sessionStorage.getItem("accessToken") || "");
         return {
             firstname: token.given_name,
             lastname: token.family_name,
