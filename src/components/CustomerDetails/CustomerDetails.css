@@ -1,0 +1,19 @@
+.account-details.entry {
+    display: flex;
+    font-size: 1rem;
+    font-family: 'Saira', sans-serif;
+}
+
+.account-details-container p {
+    margin: 5px 5px;
+    font-weight: bold;
+}
+
+.account-details-container p span {
+    font-weight: normal;
+}
+
+.account-details-container p span.email {
+    display: block;
+    margin-top: 10px;
+}
