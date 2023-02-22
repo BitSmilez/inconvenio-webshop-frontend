@@ -1,0 +1,44 @@
+.order-history-container {
+    font-family: 'Saira', sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    max-height: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-history-container:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.account-order-history-container {
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+.order-id-date-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    margin-bottom: -40px;
+}
+
+.order-service-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    margin-bottom: -40px;
+}
+
+.order-total-container {
+    display: flex;
+    justify-content: center;
+    padding: 5px 20px;
+}
+
+.order-total-container p {
+    font-weight: bold;
+    font-size: 20px;
+}

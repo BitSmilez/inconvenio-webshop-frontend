@@ -18,23 +18,26 @@ const ProductItem = ({product}: { product: any }) => {
     const {customer, setCustomer}: any = useContext(CustomerContext);
 
 
-    const handleNavigateToDetails = () => {
-        navigate({
-            pathname: "/products",
-            search: "?product=" + product.id,
-        });
+    const handleNavigateToDetails = (e: any) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest(`[data-testid="addToCartButton"]`)) {
+            navigate({
+                pathname: "/products",
+                search: "?product=" + product.id,
+            });
+        }
     }
-    const handleAddToCart = async (e: any) => {
-        e.stopPropagation();
+    const handleAddToCart = async () => {
         await addToCart(product.id.toString(), 1, customer.customerID, setCustomer, alert);
     }
 
 
     return (
-        <div onClick={() => handleNavigateToDetails()} className="product-item">
+        <div onClick={(e) => handleNavigateToDetails(e)} className="product-item">
             <div className="product-item-image">
                 <Tooltip title="Add to Cart">
-                <IconButton onClick={(e) => handleAddToCart(e)}
+                <IconButton onClick={() => handleAddToCart()}
+                            data-testid="addToCartButton"
                             sx={{position: "absolute"}}
                             className={"pList-add-to-cart-icon"}
                             color="default"

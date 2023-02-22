@@ -1,0 +1,49 @@
+.account-page-container {
+    height: 100vh;
+}
+
+.account-page-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    font-family: 'Saira', sans-serif;
+}
+
+.account-page-headline {
+    display: flex;
+    justify-content: center;
+}
+
+.account-page-content-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Saira', sans-serif;
+    font-size: 18px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    height: 300px;
+    gap: 5px;
+    padding: 5px;
+}
+
+
+
+.account-page-content-right {
+    flex: 2;
+    font-family: 'Saira', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+
+}
+
+.account-button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 25px 0 25px;
+}

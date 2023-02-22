@@ -75,7 +75,7 @@ const AccountMenu = () => {
                     <div>
 
                         <MenuItem onClick={() => {
-                            console.log(localStorage.getItem("accessToken"))
+                            window.location.href = "/account"
                         }}>
                             <ListItemIcon>
                                 <Settings fontSize="small"/>
@@ -84,8 +84,8 @@ const AccountMenu = () => {
                         </MenuItem>
                         <MenuItem onClick={() => {
                             setLoggedIn(false)
-                            localStorage.removeItem("accessToken")
-                            localStorage.removeItem("customerID")
+                            sessionStorage.removeItem("accessToken")
+                            sessionStorage.removeItem("customerID")
                             window.location.reload();
                         }}>
                             <ListItemIcon>

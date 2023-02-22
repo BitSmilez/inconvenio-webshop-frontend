@@ -92,7 +92,7 @@ const getCartItemCount = async (userID: string, setCustomer: any) => {
 }
 
 const generateHeaders = () => {
-    const bearer = localStorage.getItem("accessToken") || "";
+    const bearer = sessionStorage.getItem("accessToken") || "";
     const headers: any = {};
     if (bearer) {
         headers["Authorization"] = "Bearer " + bearer;
