@@ -57,5 +57,13 @@ const login = async (body: any, alert: any, setLoggedIn: any, setToken: any, set
         })
 }
 
+const logout = async (setLoggedIn: any) => {
+    setLoggedIn(false);
+    sessionStorage.removeItem("accessToken")
+    sessionStorage.removeItem("customerID")
+    window.location.href = "/"
+}
 
-export {register, login};
+
+
+export {register, login, logout};
