@@ -7,6 +7,7 @@ import {
     AddCircleOutline, Login
 } from "@mui/icons-material";
 import {CustomerContext} from "../../context/CustomerContext";
+import {logout} from "../../utils/helpers/authHelper";
 
 
 const AccountMenu = () => {
@@ -82,11 +83,8 @@ const AccountMenu = () => {
                             </ListItemIcon>
                             Account
                         </MenuItem>
-                        <MenuItem onClick={() => {
-                            setLoggedIn(false)
-                            sessionStorage.removeItem("accessToken")
-                            sessionStorage.removeItem("customerID")
-                            window.location.reload();
+                        <MenuItem onClick={async () => {
+                            await logout(setLoggedIn);
                         }}>
                             <ListItemIcon>
                                 <Logout fontSize="small"/>
