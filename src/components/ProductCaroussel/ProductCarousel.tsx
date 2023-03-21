@@ -4,7 +4,7 @@ import "./ProductCarousel.css";
 
 const ProductCarousel = ({category, remove_id}: { category: string, remove_id: string }) => {
 
-    let url = `http://localhost:8080/product/category/${category}`;
+    let url = `http://localhost:8085/product/category/${category}`;
     const {fetchedData: fetched_products} = useFetch(url);
     let products = fetched_products.filter((product: any) => product.id !== remove_id);
 
