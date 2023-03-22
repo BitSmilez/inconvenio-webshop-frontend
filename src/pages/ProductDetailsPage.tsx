@@ -10,7 +10,7 @@ const ProductDetailsPage = () => {
 
     const [productid] = useSearchParams();
     const id = productid.get("product");
-    const {fetchedData: product, isLoading, errMsg}: any = useFetch("http://localhost:8080/product/" + id);
+    const {fetchedData: product, isLoading, errMsg}: any = useFetch("http://localhost:8085/product/" + id);
 
     return (
         <>
